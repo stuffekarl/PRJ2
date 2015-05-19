@@ -1,0 +1,16 @@
+\section{Specifikation og Analyse}
+Denne sektion omhandler hvordan der er blevet analyseret og specificeret i projektets overordnede problemløsninger af de opstillede problemer under projektoplæget. 
+Dette vil omhandle bearbejdelsen og tankerne bag kravspecifikationen (side \pageref{P-chap:kravspec} i projektdokumentation).
+
+For at specificere problemet der skulle løses, blev der diskuteret mellem projektets medlemmer, om hvad der er det primære formål med dette projekt var. 
+Inden andet blev foretaget, blev de forskellige krav, der blev stillet fra projektoplæget, undersøgt. 
+Der blev taget en beslutning om funktionaliteten af det endelige system, således at det passede til formålet beskrevet under projektoplæget. 
+Projektgruppen fandt individuelle løsninger på det primære problem og præsenterede disse løsninger for de øvrige medlemmer. 
+Dette resulterede i at gruppen valgte at Home Automtion Systemet skulle have tilkoblet to lamper, et TV og en radio og at det skulle tilgås via en PC og ellers køre fra en microcontroller, som kommunikerede via X.10\cite{lib:AN236} til øvrige microcontrollere på et $18V AC$ netværk. 
+Den oprindelige tanke var at TV og Radio skulle styres vha infrarød kommunikation fra deres respektive modtagere, men gruppen fravalgte dette inden design-fasen, for at fokusere på det vigtige aspekter i projektet, nemlig at få protokollen og kommunikation via X.10 til at fungere.
+Dette blev herefter dokumenteret i form af \textit{Systembeskrivelse} på s. \pageref{P-Systembeskrivelse} og \textit{Aktør-kontekst diagram} på s. \pageref{P-fig:actor} under Kravspecifikation i projektdokumentationen.
+
+Herefter blev et use case diagram, samt use case beskrivelse, for de primære hovedforløb af systemets ønskede funktionalitet, konstrueret således, at der ikke kunne opstå tvivl, i det ønskede systems funktionalitet og formål samt for at skabe overskuelighed af systemet. 
+Ud fra formål, funktionalitet og use cases blev der opstillet krav til det endelige system. 
+Disse krav blev inddelt i funktionelle og ikke funktionelle krav (s. \pageref{P-FunkKrav} i Projektdokumentationen) således, at de valgte arbejdsmodeller blev fulgt, og det var muligt at opstille en endelig kravspecifikation under processen. 
+Dette endte ud i at en accepttest (s. \pageref{P-chap:acceptt} i dokumentationen) var mulig at udarbejde, dermed blev V-modellen fulgt.

@@ -1,0 +1,64 @@
+\chapter{Indledning}
+
+Næsten alle har prøvet at have indbrud i deres hjem eller kender nogen, som har haft denne ubehagelige oplevelse. 
+Der er mange forskellige måder at sikre sit hjem mod indbrud; dette kan fx ske ved opsætning af kraftige låse/døre/vinduer, vagtservice eller overvågnings- og alarmsystemer. 
+Langt de fleste indbrud i et hjem sker når ingen er hjemme, der ligger derfor en oplagt mulighed for at forebygge og forhindre indbrud, ved at få indbrudstycven til at tro at der er beboere til stede i hjemmet. 
+
+Dette projekt omhandler design og implementering af et system, som vha. allerede tilstedeværende elektriske enheder, netop kan simulere tilstedeværelse i en bolig. 
+Systemet styres fra en almindelig PC, der kommunikerer med de elektriske enheder via elnettet. 
+Der er således et minimalt behov for installation af hardware og ledninger i hjemmet. 
+
+\section{Forkortelser i rapporten}
+I dette dokument er der anvendt en række forkortelser:
+
+\begin{table} [h]
+	\centering
+	\begin{tabular}{|l|l|}
+	\hline
+	\textbf{Forkortelse} & \textbf{Forklaring} \\ \hline
+	DE-2 & Terasic Altera DE-2 udviklingsboard \\ \hline
+	STK500-kit & Arduino Nanoboard monteret med ATmega328P microcontroller \\ \hline 
+	V-model & T-006 Compendium \cite{lib:Projektoplaeg}\\ \hline
+	ASE-modellen & T-006 Compendium \cite{lib:Projektoplaeg}\\ \hline
+	Scrum & T-006 Compendium \cite{lib:Projektoplaeg} \\ \hline
+	SysML & T-006 Compendium \cite{lib:Projektoplaeg} \\ \hline
+	FPGA & Field Programmable Gate Array \\ \hline
+	X.10 & AN236 \cite[s. 12]{lib:AN236} \\ \hline
+	HW & Hardware \\ \hline
+	SW & Software \\ \hline
+	UC & Use Case \\ \hline
+	ISE & Indledende System Engineering \\ \hline
+	BDD & Blokdefinitionsdiagram \\ \hline
+	IBD & Internt blokdiagram \\ \hline
+	SVN & Subversion \\ \hline
+	MSYS & Micro Controller Systemer \\ \hline
+	cd & Class Diagram \\ \hline
+	UI & User Interface \\ \hline
+	UART & Universal Asynchronous Receiver/Transmitter \\ \hline
+	RS232 & Recommended Standard 232, seriel kommunikation \\ \hline
+	PWM & Pulse Width Modulation \\ \hline
+	STL & Standard Template Library \\ \hline
+	\end{tabular}
+\end{table}
+\clearpage
+\section{Navne i dokumentationen}
+I projektsokumentationen er der i alle overskrifter angivet hjem der har arbejdet med området. Der er for overskuelighedens skyld kun anvendt fornavne:
+
+\begin{table}[h]
+	\centering
+	\begin{tabularx}{\textwidth-3cm}{|l|X|r|}
+	\hline
+	\textbf{Anvendt navn} & \textbf{Fulde navn} & \textbf{Studienummer} \\ \hline
+	Morten & Morten Hasseriis Gormsen & 201370948 \\ \hline
+	Kristian T. & Kristian Thomsen & 201311478 \\ \hline
+	Philip & Philip Krogh-Pedersen & 201311473 \\ \hline
+	Lasse & Lasse Barner Sivertsen & 201371048 \\ \hline
+	Henrik & Henrik Bagger Jensen & 201304157 \\ \hline
+	David & David Erik Jensen & 11229 \\ \hline
+	Kasper & Kasper Torp Samuelsen & 201311498 \\ \hline
+	Kristian S. & Kristian Søgaard Sørensen & 20115255 \\ \hline
+	Alle & Alle 8 medlemmer af projektgruppen & - \\ \hline
+	\end{tabularx}
+\end{table}
+
+\clearpage

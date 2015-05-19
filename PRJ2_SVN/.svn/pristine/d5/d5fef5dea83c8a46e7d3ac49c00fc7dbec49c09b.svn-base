@@ -1,0 +1,148 @@
+#pragma once
+#include <stdlib.h>
+#include <stdio.h>
+#include <iostream>
+#include <cmath>
+#include <Windows.h>
+
+
+
+#include "rs232.h"
+#include "Scenario.h"
+
+using namespace std;
+class UART
+{
+public:
+	UART()
+	{
+
+	}
+
+	void UART_connect()
+	{
+		char mode[] = { '8', 'N', '1', 0 },
+			str[20][5];
+		cout << "leder efter gyldig port\n";
+		//inialitisere og finder gyldig Comport
+		while (RS232_OpenComport(cport_nr, bdrate, mode))
+		{
+
+			printf("ugyldig Com-port\n");
+			cport_nr++;
+
+		
+
+		}
+		cout << "port: " << cport_nr << " aaben\n";
+	}
+	bool getLockStatus()
+	{
+
+		RS232_cputs(cport_nr, "L");
+
+	}
+	void sendScen(Scenario &scen)
+	{
+		char mode[] = { '8', 'N', '1', 0 },
+			str[20][7];
+
+		while (sent)
+		{
+			Action & action = scen.getAction(i);
+			action.setTime(1263);
+		
+
+			{
+				cout << action.getCommand() << " " << action.getUnit() << " " << action.getTime() << endl;
+
+			}
+			char command = action.getCommand();
+			char unit;
+			char timeH, timeL1, timeL2;
+
+			{
+				//tager sig af at omregne tiden fra int til char
+				// 1= 1  2=2   9=9  10=A  11=B 12=C  13=D 14= E 15 = F
+				int timeLow1 = action.getTime() % 16;
+				int timeLow2 = int((floor(action.getTime() / 16))) % 16;
+
+				timeL1 = (char)(((int)'0') + timeLow1);
+				if (timeLow1 > 9)
+					timeL1 += 7;
+				timeL2 = (char)(((int)'0') + timeLow2);
+				if (timeLow2 > 9)
+					timeL2 += 7;
+
+
+				int timeHigh = int((floor(action.getTime() / (16*16)))) % 16;
+				timeH = (char)(((int)'0') + timeHigh);
+
+
+						
+				
+
+
+			}
+
+
+			switch (action.getUnit())
+			{
+			case 1:
+				unit = 'A';
+				break;
+			case 2:
+				unit = 'C';
+				break;
+			case 3:
+				unit = 'P';
+				break;
+			case 4:
+				unit = 'N';
+				break;
+			default: 
+				unit = '0';
+				break;
+
+			}
+
+			char data[7] = { unit, command,'0',timeH, timeL2, timeL1 };
+			strcpy(str[i], data);
+			RS232_cputs(cport_nr, str[i]);
+
+			printf("sendt data: %s\n", str[i]);
+
+
+			Sleep(1000);
+
+
+
+			i++;
+
+			i %= 20;
+			c++;
+			if (c == 20)
+			{
+				printf("Transmission fuldfoert\n");
+				break;
+			}
+		}
+
+	}
+	void stopAll()
+	{
+		RS232_cputs(cport_nr, "S");
+	}
+
+
+private:
+	bool sent = 1;
+	int c = 0;
+	int i = 0,
+		cport_nr = 0,        
+		bdrate = 9600;     
+
+
+
+};
+

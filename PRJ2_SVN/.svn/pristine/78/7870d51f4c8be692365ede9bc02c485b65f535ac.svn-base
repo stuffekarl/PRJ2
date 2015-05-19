@@ -1,0 +1,41 @@
+/*
+ * Transmitter.cpp
+ *
+ * Created: 2014-11-27 13:32:54
+ *  Author: Kristian Thomsen
+ */ 
+
+#include "Transmitter.h"
+
+ Transmitter::Transmitter(Codelock * codePtr, Tx10 * tx10Ptr, Time * timePtr){
+    charCounter = 0;
+	scenCounter = 0;
+	receiving = false;
+	myCodelockPtr = codePtr;
+	myTx10Ptr = tx10Ptr;
+	myTimePtr = timePtr;
+	for (int i = 0; i < 20; i++){
+		myScenario[i].setAction(0,0,0);
+	}
+ }
+
+ void Transmitter::scenData(char){
+	if (charCounter == 0){
+		//TODO: Implementer denne methode helt.
+	}
+}
+
+ void Transmitter::newScen(void){
+	charCounter = 0;
+	scenCounter = 0;
+	receiving = true;
+}
+
+bool Transmitter::getLockStatus(void){
+	return myCodelockPtr->locked();
+}
+
+void Transmitter::stopAll(){
+	myTimePtr->stopTime();
+	myTx10Ptr->turnAllOff();
+}

@@ -1,0 +1,45 @@
+\makeatletter
+\def\input@path{{./AcceptTest/}}
+\makeatother
+
+\input{../preamble/preamble}
+\title{Projektdokumentation \\ Home Automation System \\ Gruppe 1}
+\author{ 2. Semesterprojekt E2PRJ2-03 \\ Ingeniørhøjskolen, Aarhus Universitet \\ Vejleder: Arne Justesen}
+\date{17. december 2014}
+
+\begin{document}
+\frontmatter
+\maketitle
+
+\begin{table} [h]
+	\centering
+	\begin{tabular}{|l|r|l|}
+	\hline 
+	\textbf{Navn} & \textbf{Studienummer} & \textbf{Underskrift~~~~~~~~~~~~~~~~~~~~} \\ \hline
+	Morten Hasseriis Gormsen & 201370948 & \\ && \\ \hline
+	Kristian Thomsen & 201311478 & \\ && \\ \hline
+	Philip Krogh-Pedersen & 201311473 & \\ && \\ \hline
+	Lasse Barner Sivertsen & 201371048 & \\ && \\ \hline
+	Henrik Bagger Jensen & 201304157 & \\ && \\ \hline
+	David Erik Jensen & 11229 & \\ && \\ \hline
+	Kasper Torp Samuelsen & 201311498 & \\ && \\ \hline
+	Kristian Søgaard Sørensen & 20115255 & \\ && \\ \hline
+	\end{tabular}
+\end{table}
+\clearpage
+\tableofcontents
+\mainmatter
+
+\input{Projektformulering/Projektformulering}
+\input{Kravspecifikation/kravspecifikation}
+\input{Accepttest/Accepttest}
+\input{Systemarkitektur/Systemarkitektur}
+\input{HardwareDesign/hwdesign}
+\input{SoftwareDesign/sw_design}
+\input{Implementering/implhard}
+\clearpage
+\input{Implementering/implsoft}
+\clearpage
+\input{Litteraturliste/Litteraturliste}
+
+\end{document}

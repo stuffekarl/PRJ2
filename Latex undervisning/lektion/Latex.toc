@@ -1,0 +1,10 @@
+\select@language {danish}
+\contentsline {chapter}{Indhold}{ii}
+\contentsline {chapter}{\chapternumberline {1}Brug af LaTex}{1}
+\contentsline {chapter}{\chapternumberline {2}Layout}{1}
+\contentsline {section}{\numberline {2.1}Sections og subsections}{1}
+\contentsline {section}{\numberline {2.2}Newpage og newline}{1}
+\contentsline {chapter}{\chapternumberline {3}Billeder/tabeller}{2}
+\contentsline {section}{\numberline {3.1}Import billeder}{2}
+\contentsline {section}{\numberline {3.2}Tabel}{2}
+\contentsline {chapter}{\chapternumberline {4}Matematik}{2}

@@ -1,0 +1,16 @@
+\begin{longtable}{| l | >{\raggedright}X | >{\raggedright}X | >{\raggedright}X | >{\raggedright\arraybackslash}p{2.3cm} |} \hline
+	\multicolumn{2}{|l|}{\textbf{Use case under test}} & \multicolumn{3}{l|}{UC1: "Opret Scenarie"} \\ \hline
+	\multicolumn{2}{|l|}{\textbf{Scenarie}} & \multicolumn{3}{l|}{Hovedscenarie} \\ \hline
+	\multicolumn{2}{|l|}{\textbf{Forudsætning}} & \multicolumn{3}{p{10.2cm}|}{Koden er indtastet korrekt på kodelåsen og systemet er operationelt.\hfill} \\ \hline
+	%\multicolumn{5}{|l|}{}\\ \hline
+	\textbf{Step} & \textbf{Handling} & \textbf{Forventet Resultat} & \textbf{Resultat} & \textbf{Godkendt / Kommentar} \\ \hline
+	1.1  & Brugeren har startet programmet og vælger "Opret Scenarie". & Systemet præsenterer en liste af aktioner. & Systemet præsenterer en liste af aktioner  & Godkendt \\ \hline
+	1.2a & Brugeren vælger et ugyldigt aktionsnummer & Systemet giver en fejlmeddelelse og beder om nyt input. & Systemet giver en fejlmeddelelse og beder om nyt input & Godkendt \\ \hline
+	1.2b & Brugeren vælger et gyldigt aktionsnummer & Brugeren bliver præsenteret for en liste af enheder. &  Brugeren bliver præsenteret for en liste af enheder. & Godkendt \\ \hline
+	1.3  & Brugeren indtaster en enhed for aktion. & Systemet præsenterer en liste af enheder. &  Systemet præsenterer en liste af enheder. & Godkendt \\ \hline
+	1.4  & Brugeren vælger en kommando for aktion. & Systemet præsenterer en liste af kommandoer. &  Systemet præsenterer en liste af kommandoer. & Godkendt \\ \hline
+	1.5  & Brugeren vælger tid for aktion & Systemet beder om indtastning af et tidspunkt for aktion. & Systemet beder om indtastning af et tidspunkt for aktion.& Godkendt \\ \hline
+	1.6  & Brugeren gentager pkt. 1.2b til 1.5. & Brugeren præsenteres med listen af aktioner. & Brugeren kan vælge mellem kører scenaiet eller rediger den & Godkendt / Anden implementation end use case beskrivelse \\ \hline
+	1.7  & Brugeren vælger "Eksekvér scenarie" & Hovedmenuen præsenteres og scenariet eksekveres som planlagt. & Hovedmenuen præsenteres og scenariet eksekveres som planlagt. & Godkendt \\ \hline
+\caption{Accepttest for UC1: Opret scenarie}\label{tbl:acceptUC1}
+\end{longtable}

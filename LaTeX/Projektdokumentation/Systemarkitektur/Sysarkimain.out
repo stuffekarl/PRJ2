@@ -1,0 +1,25 @@
+\BOOKMARK [0][-]{chapter.1}{Systemarkitektur}{}% 1
+\BOOKMARK [1][-]{section.1.1}{Version}{chapter.1}% 2
+\BOOKMARK [1][-]{section.1.2}{SysML diagrammer}{chapter.1}% 3
+\BOOKMARK [2][-]{subsection.1.2.1}{BDD for system kontekst}{section.1.2}% 4
+\BOOKMARK [2][-]{subsection.1.2.2}{IBD for system kontekst}{section.1.2}% 5
+\BOOKMARK [2][-]{subsection.1.2.3}{BDD for systemet}{section.1.2}% 6
+\BOOKMARK [2][-]{subsection.1.2.4}{IBD for systemet}{section.1.2}% 7
+\BOOKMARK [2][-]{subsection.1.2.5}{IBD for Transmitter-blokken}{section.1.2}% 8
+\BOOKMARK [2][-]{subsection.1.2.6}{IBD for X10-enhed i transmitter-blokken}{section.1.2}% 9
+\BOOKMARK [2][-]{subsection.1.2.7}{IDB for receivers}{section.1.2}% 10
+\BOOKMARK [2][-]{subsection.1.2.8}{IDB for X.10 enhed i lys-blokken}{section.1.2}% 11
+\BOOKMARK [1][-]{section.1.3}{Signalbeskrivelser}{chapter.1}% 12
+\BOOKMARK [2][-]{subsection.1.3.1}{Signaltyper}{section.1.3}% 13
+\BOOKMARK [2][-]{subsection.1.3.2}{Gr\346nseflader}{section.1.3}% 14
+\BOOKMARK [1][-]{section.1.4}{Software arkitektur}{chapter.1}% 15
+\BOOKMARK [2][-]{subsection.1.4.1}{Sekvensdiagram for PC [Use Case 1: Opret Scenarie]}{section.1.4}% 16
+\BOOKMARK [2][-]{subsection.1.4.2}{Sekvensdiagram for PC [Use Case 2: V\346lg Scenarie]}{section.1.4}% 17
+\BOOKMARK [2][-]{subsection.1.4.3}{Sekvensdiagram for PC [Use Case 3: Stop Scenarie]}{section.1.4}% 18
+\BOOKMARK [2][-]{subsection.1.4.4}{Klassediagram for PC}{section.1.4}% 19
+\BOOKMARK [2][-]{subsection.1.4.5}{Sekvensdiagram for transmitter [Use Case 1: Opret Scenarie]}{section.1.4}% 20
+\BOOKMARK [2][-]{subsection.1.4.6}{Sekvensdiagram for transmitter [Use Case 3: Stop Scenarie]}{section.1.4}% 21
+\BOOKMARK [2][-]{subsection.1.4.7}{Sekvensdiagram for transmitter [Use Case 4: Afvikl Scenarie]}{section.1.4}% 22
+\BOOKMARK [2][-]{subsection.1.4.8}{Klassediagram for transmitter}{section.1.4}% 23
+\BOOKMARK [2][-]{subsection.1.4.9}{Sekvensdiagram for receiver [Use Case 4: Afvikl Scenarie]}{section.1.4}% 24
+\BOOKMARK [2][-]{subsection.1.4.10}{Klassediagram for receiver}{section.1.4}% 25

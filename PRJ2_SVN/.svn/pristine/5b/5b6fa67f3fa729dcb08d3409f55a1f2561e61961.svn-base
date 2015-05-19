@@ -1,0 +1,19 @@
+/*
+ * Codelock.h
+ *
+ * Created: 2014-11-27 14:39:00
+ *  Author: Kristian Thomsen
+ */ 
+
+#ifndef CODELOCK_H_
+#define CODELOCK_H_
+
+class Codelock{
+public:
+	Codelock();
+	bool unlocked();
+};
+
+Codelock * getMyCodelock();
+
+#endif /* CODELOCK_H_ */

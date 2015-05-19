@@ -1,0 +1,22 @@
+\section{Porte (Kristian T., Kristian S., David og Kasper)}
+
+\subsubsection{Transmitter}
+
+\begin{itemize}
+\item D0 (RXD) \& D1 (TXD): Bruges til at kommunikere via UART med PC blokken.
+\item D2 (INT0): Betragtes som \texttt{ZeroCrossDetect: bool} fra Figur \ref{fig:IBDx.10transmit} side \pageref{fig:IBDx.10transmit}.
+\item B3 (OC0): Forbindes til \texttt{X.10Data: bitstream}, bruges til at sende data fra transmitter via X10.
+\item A0: Henter status fra kodelåsen.
+\end{itemize}
+
+\subsubsection{Receiver}
+
+Receiver blokken ejer følgende porte på STK500:
+\begin{itemize}
+\item D0 (RXD) \& D1 (TXD): Bruges til debugging af Receiveren ved at sende input fra X10 ud via UART.
+\item A0: Betragtes som \texttt{X.10Data: bitstream} fra Figur \ref{fig:IDBx.10lys} på side \pageref{fig:IDBx.10lys}.
+\item D2 (INT0): Betragtes som \texttt{ZeroCrossDetect: bool} fra Figur \ref{fig:IDBx.10lys} side \pageref{fig:IDBx.10lys}.
+\item B3 (OC0): Forbindes til \texttt{LightCntrl: CntrlPWM} fra ovenstående figur.
+\end{itemize}
+
+\clearpage

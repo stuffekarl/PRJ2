@@ -1,0 +1,94 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <iostream>
+
+#ifdef _WIN32
+#include <Windows.h>
+#else
+#include <unistd.h>
+#endif
+
+#include "rs232.h"
+
+
+#include "Scenario.h"
+
+using namespace std;
+class UART
+{
+public:
+	UART()
+	{
+
+	}
+
+	void UART_connect()
+	{
+		char mode[] = { '8', 'N', '1', 0 },
+			str[20][5];
+		cout << "leder efter gyldig port\n";
+		//inialitisere og finder gyldig Comport
+		while (RS232_OpenComport(cport_nr, bdrate, mode))
+		{
+
+			printf("ugyldig Com-port\n");
+			cport_nr++;
+
+		
+
+		}
+		cout << "port: " << cport_nr << " aaben\n";
+	}
+	bool getLockStatus()
+	{
+
+		RS232_cputs(cport_nr, "L");
+
+	}
+	void sendScen(Scenario &scen)
+	{
+		char mode[] = { '8', 'N', '1', 0 },
+			str[20][5];
+
+		while (sent)
+		{
+			strcpy(str[i], "AA01");
+			RS232_cputs(cport_nr, str[i]);
+
+			printf("sendt data: %s\n", str[i]);
+
+#ifdef _WIN32
+			Sleep(1000);
+#else
+			usleep(1000000);  /* sleep for 1 Second */
+#endif
+
+			i++;
+
+			i %= 20;
+			c++;
+			if (c == 20)
+			{
+				printf("Transmission fuldfoert\n");
+				break;
+			}
+		}
+
+	}
+	void stopAll()
+	{
+		RS232_cputs(cport_nr, "S");
+	}
+
+
+private:
+	bool sent = 1;
+	int c = 0;
+	int i = 0,
+		cport_nr = 0,        
+		bdrate = 9600;     
+
+
+
+};
+

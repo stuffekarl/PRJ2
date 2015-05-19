@@ -1,0 +1,28 @@
+/*
+ * Action.h
+ *
+ * Created: 2014-11-21 12:54:48
+ *  Author: Snufkin
+ */ 
+#ifndef ACTION_H_
+#define ACTION_H_
+
+
+class Action
+{
+public:
+	Action();
+	void setAction(unsigned char unit, unsigned char command, unsigned int time);
+	unsigned char getHouseCode() const;
+	unsigned char getUnit() const;
+	unsigned char getCommand() const;
+	unsigned char getTimeH() const;
+	unsigned char getTimeL() const;
+private:
+	unsigned int time;
+	unsigned char unit;
+	unsigned char command;
+	unsigned char houseCode;
+};
+
+#endif /* ACTION_H_ */

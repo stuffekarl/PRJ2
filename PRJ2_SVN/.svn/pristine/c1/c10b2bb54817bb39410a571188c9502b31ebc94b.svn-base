@@ -1,0 +1,24 @@
+/*
+ * ReceiverProj.cpp
+ *
+ * Created: 21-11-2014 08:33:37
+ *  Author: sem2 gruppe
+ */ 
+
+
+#include <avr/io.h>
+#include "Rx10.h"
+
+int main(void)
+{
+	
+	
+	
+    while(1)
+    {
+        //TODO:: Please write your application code 
+    }
+	
+	
+	
+}

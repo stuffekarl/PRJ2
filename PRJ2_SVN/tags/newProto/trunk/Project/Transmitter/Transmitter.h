@@ -1,0 +1,55 @@
+/*
+ * Transmitter.h
+ *
+ * Created: 2014-11-27 12:12:34
+ *  Author: Kristian Thomsen
+ * Note: In order to build this file, one needs to enable nullptr, this can be done in:
+ * Project -> Properties (ALT+F7)
+ * AVR/GNU C++ compiler -> Miscellaneous
+ * Other flags: -std=c++0x
+ */ 
+
+#pragma once
+#ifndef TRANSMITTER_H_
+#define TRANSMITTER_H_
+
+#include "Action.h"
+
+class Codelock;
+class Time;
+class Tx10;
+
+class Transmitter{
+public:
+	Transmitter();
+	//!Called by Rx10 class when data is received
+    void scenData(char input);
+	//!Tells the Transmitter that a new Scenario is about to be programmed.
+	void newScen(void);
+	//!Returns true if the status of the lock
+	bool getLockStatus(void);
+	//!Stops the current Scenario and turns all units off
+	void stopAll();
+	void setCodelockPtr(Codelock * setMe);
+	void setTx10Ptr(Tx10 * setMe);
+	void setTimePtr(Time * setMe);
+	//!Checks if the current time matches the next Action, if several Actions are placed at the same time it will also check those.
+	void checkTime(unsigned int theTime);
+private:
+	unsigned char scenCounter;	//Counts how many of the actions have been received
+	unsigned char charCounter;	//Counts how many parts of an action has been received
+	unsigned char tempUnit;		//Holds the unit until it is ready to be saved in Action class
+	unsigned char tempCommand;	//Same functionality as above
+	unsigned int tempTime;		//Same functionality as above
+	unsigned char nextAction;	//Keeps track of which Action is to be executed next
+	unsigned char breakAt;		//Helping variable to prevent too many recursive calls (if all 20 Actions are set at the same time)
+	bool firstLoop;				//Used for above functionality
+	Codelock * myCodelockPtr;
+	Tx10 * myTx10Ptr;
+	Time * myTimePtr;
+	Action myScenario[20];		//Holds all the Actions
+};
+
+Transmitter * getMyTrans();
+
+#endif /* TRANSMITTER_H_ */

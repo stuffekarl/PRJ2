@@ -1,0 +1,109 @@
+\BOOKMARK [0][-]{section*.1}{Indhold}{}% 1
+\BOOKMARK [0][-]{chapter.1}{Projektformulering \(Alle\)}{}% 2
+\BOOKMARK [1][-]{section.1.1}{Version}{chapter.1}% 3
+\BOOKMARK [0][-]{chapter.2}{Kravspecifikation \(Alle\)}{}% 4
+\BOOKMARK [1][-]{section.2.1}{Version}{chapter.2}% 5
+\BOOKMARK [1][-]{section.2.2}{Systembeskrivelse}{chapter.2}% 6
+\BOOKMARK [1][-]{section.2.3}{Akt\370r-kontekst diagram}{chapter.2}% 7
+\BOOKMARK [2][-]{subsection.2.3.1}{Akt\370rbeskrivelse}{section.2.3}% 8
+\BOOKMARK [1][-]{section.2.4}{Use Case diagram}{chapter.2}% 9
+\BOOKMARK [1][-]{section.2.5}{Use Case beskrivelse}{chapter.2}% 10
+\BOOKMARK [1][-]{section.2.6}{Funktionelle Krav}{chapter.2}% 11
+\BOOKMARK [1][-]{section.2.7}{Ikke Funktionelle Krav}{chapter.2}% 12
+\BOOKMARK [0][-]{chapter.3}{Accepttest \(Alle\)}{}% 13
+\BOOKMARK [1][-]{section.3.1}{Version}{chapter.3}% 14
+\BOOKMARK [1][-]{section.3.2}{Funktionelle Krav}{chapter.3}% 15
+\BOOKMARK [1][-]{section.3.3}{Ikke Funktionelle Krav}{chapter.3}% 16
+\BOOKMARK [0][-]{chapter.4}{Systemarkitektur \(Alle\)}{}% 17
+\BOOKMARK [1][-]{section.4.1}{Version}{chapter.4}% 18
+\BOOKMARK [1][-]{section.4.2}{SysML diagrammer}{chapter.4}% 19
+\BOOKMARK [2][-]{subsection.4.2.1}{BDD for system kontekst}{section.4.2}% 20
+\BOOKMARK [2][-]{subsection.4.2.2}{IBD for system kontekst}{section.4.2}% 21
+\BOOKMARK [2][-]{subsection.4.2.3}{BDD for systemet}{section.4.2}% 22
+\BOOKMARK [2][-]{subsection.4.2.4}{IBD for systemet}{section.4.2}% 23
+\BOOKMARK [2][-]{subsection.4.2.5}{IBD for Transmitter-blokken}{section.4.2}% 24
+\BOOKMARK [2][-]{subsection.4.2.6}{IBD for X.10-enhed i transmitter-blokken}{section.4.2}% 25
+\BOOKMARK [2][-]{subsection.4.2.7}{IBD for receivers}{section.4.2}% 26
+\BOOKMARK [2][-]{subsection.4.2.8}{IBD for X.10 enhed i lys-blokken}{section.4.2}% 27
+\BOOKMARK [1][-]{section.4.3}{Signalbeskrivelser}{chapter.4}% 28
+\BOOKMARK [2][-]{subsection.4.3.1}{Signaltyper}{section.4.3}% 29
+\BOOKMARK [2][-]{subsection.4.3.2}{Gr\346nseflader}{section.4.3}% 30
+\BOOKMARK [1][-]{section.4.4}{Softwarearkitektur}{chapter.4}% 31
+\BOOKMARK [2][-]{subsection.4.4.1}{Sekvensdiagram for PC [Use Case 1: Opret Scenarie]}{section.4.4}% 32
+\BOOKMARK [2][-]{subsection.4.4.2}{Sekvensdiagram for PC [Use Case 2: V\346lg Scenarie]}{section.4.4}% 33
+\BOOKMARK [2][-]{subsection.4.4.3}{Sekvensdiagram for PC [Use Case 3: Stop Scenarie]}{section.4.4}% 34
+\BOOKMARK [2][-]{subsection.4.4.4}{Klassediagram for PC}{section.4.4}% 35
+\BOOKMARK [2][-]{subsection.4.4.5}{Sekvensdiagram for Transmitter [Use Case 1: Opret Scenarie]}{section.4.4}% 36
+\BOOKMARK [2][-]{subsection.4.4.6}{Sekvensdiagram for Transmitter [Use Case 3: Stop Scenarie]}{section.4.4}% 37
+\BOOKMARK [2][-]{subsection.4.4.7}{Sekvensdiagram for Transmitter [Use Case 4: Afvikl Scenarie]}{section.4.4}% 38
+\BOOKMARK [2][-]{subsection.4.4.8}{Klassediagram for Transmitter}{section.4.4}% 39
+\BOOKMARK [2][-]{subsection.4.4.9}{Sekvensdiagram for Receiver [Use Case 4: Afvikl Scenarie]}{section.4.4}% 40
+\BOOKMARK [2][-]{subsection.4.4.10}{Klassediagram for Receiver}{section.4.4}% 41
+\BOOKMARK [0][-]{chapter.5}{Hardware Design}{}% 42
+\BOOKMARK [1][-]{section.5.1}{Version}{chapter.5}% 43
+\BOOKMARK [1][-]{section.5.2}{Blokopdeling}{chapter.5}% 44
+\BOOKMARK [1][-]{section.5.3}{Transmitter}{chapter.5}% 45
+\BOOKMARK [2][-]{subsection.5.3.1}{18V AC Transformer}{section.5.3}% 46
+\BOOKMARK [2][-]{subsection.5.3.2}{Sp\346ndingsforsyning \(Morten\)}{section.5.3}% 47
+\BOOKMARK [2][-]{subsection.5.3.3}{Kodel\345s \(Lasse og Henrik\)}{section.5.3}% 48
+\BOOKMARK [2][-]{subsection.5.3.4}{Zerocross Detector \(Morten og Philip\)}{section.5.3}% 49
+\BOOKMARK [2][-]{subsection.5.3.5}{Carrier Generator \(Philip og Lasse\)}{section.5.3}% 50
+\BOOKMARK [1][-]{section.5.4}{Receiver}{chapter.5}% 51
+\BOOKMARK [2][-]{subsection.5.4.1}{Lysmodul \(Morten\)}{section.5.4}% 52
+\BOOKMARK [2][-]{subsection.5.4.2}{Carrier Detector \(Morten, Henrik og Lasse\)}{section.5.4}% 53
+\BOOKMARK [0][-]{chapter.6}{Software Design}{}% 54
+\BOOKMARK [1][-]{section.6.1}{Version}{chapter.6}% 55
+\BOOKMARK [1][-]{section.6.2}{PC Blokken}{chapter.6}% 56
+\BOOKMARK [2][-]{subsection.6.2.1}{Action \(Kristian T.\)}{section.6.2}% 57
+\BOOKMARK [2][-]{subsection.6.2.2}{PC Controller}{section.6.2}% 58
+\BOOKMARK [2][-]{subsection.6.2.3}{Scenario \(Kristian S.\)}{section.6.2}% 59
+\BOOKMARK [2][-]{subsection.6.2.4}{UART \(Kasper\)}{section.6.2}% 60
+\BOOKMARK [2][-]{subsection.6.2.5}{UI \(Kasper\)}{section.6.2}% 61
+\BOOKMARK [1][-]{section.6.3}{Transmitter Blokken}{chapter.6}% 62
+\BOOKMARK [2][-]{subsection.6.3.1}{Action \(Kristian T.\)}{section.6.3}% 63
+\BOOKMARK [2][-]{subsection.6.3.2}{Codelock \(David\)}{section.6.3}% 64
+\BOOKMARK [2][-]{subsection.6.3.3}{Time \(Kasper\)}{section.6.3}% 65
+\BOOKMARK [2][-]{subsection.6.3.4}{Transmitter \(Kristian S.\)}{section.6.3}% 66
+\BOOKMARK [2][-]{subsection.6.3.5}{Transmitter UART \(Kasper\)}{section.6.3}% 67
+\BOOKMARK [2][-]{subsection.6.3.6}{Tx10 \(Kristian T.\)}{section.6.3}% 68
+\BOOKMARK [1][-]{section.6.4}{Receiver Blokken}{chapter.6}% 69
+\BOOKMARK [2][-]{subsection.6.4.1}{Lampe \(David\)}{section.6.4}% 70
+\BOOKMARK [2][-]{subsection.6.4.2}{Receiver \(David\)}{section.6.4}% 71
+\BOOKMARK [2][-]{subsection.6.4.3}{Rx10 \(Kristian T.\)}{section.6.4}% 72
+\BOOKMARK [1][-]{section.6.5}{Protokoller \(Kristian T., Kristian S., David og Kasper\)}{chapter.6}% 73
+\BOOKMARK [2][-]{subsection.6.5.1}{Protokol for UART}{section.6.5}% 74
+\BOOKMARK [2][-]{subsection.6.5.2}{Protokol for X.10}{section.6.5}% 75
+\BOOKMARK [1][-]{section.6.6}{Porte \(Kristian T., Kristian S., David og Kasper\)}{chapter.6}% 76
+\BOOKMARK [1][-]{section.6.7}{Statemachines \(Kristian S. og David\)}{chapter.6}% 77
+\BOOKMARK [0][-]{chapter.7}{Hardwareimplementering}{}% 78
+\BOOKMARK [1][-]{section.7.1}{Version}{chapter.7}% 79
+\BOOKMARK [1][-]{section.7.2}{Sp\346ndingsforsyning \(Lasse\)}{chapter.7}% 80
+\BOOKMARK [1][-]{section.7.3}{Kodel\345s \(Philip\)}{chapter.7}% 81
+\BOOKMARK [1][-]{section.7.4}{Zerocross Detector \(Morten og Henrik\)}{chapter.7}% 82
+\BOOKMARK [1][-]{section.7.5}{Carrier Generator \(Lasse og Philip\)}{chapter.7}% 83
+\BOOKMARK [1][-]{section.7.6}{Lysmodul \(Kristian S.\)}{chapter.7}% 84
+\BOOKMARK [1][-]{section.7.7}{Carrier Detector \(Morten og David\)}{chapter.7}% 85
+\BOOKMARK [0][-]{chapter.8}{Softwareimplementering}{}% 86
+\BOOKMARK [1][-]{section.8.1}{Version}{chapter.8}% 87
+\BOOKMARK [1][-]{section.8.2}{PC blokken}{chapter.8}% 88
+\BOOKMARK [2][-]{subsection.8.2.1}{Scenario \(Kristian S.\)}{section.8.2}% 89
+\BOOKMARK [2][-]{subsection.8.2.2}{Action \(Kristian S.\)}{section.8.2}% 90
+\BOOKMARK [2][-]{subsection.8.2.3}{UI \(Kasper\)}{section.8.2}% 91
+\BOOKMARK [2][-]{subsection.8.2.4}{PC UART \(Kasper\)}{section.8.2}% 92
+\BOOKMARK [2][-]{subsection.8.2.5}{PC Main \(Henrik\)}{section.8.2}% 93
+\BOOKMARK [1][-]{section.8.3}{Generelt om Microcontrollers \(David\)}{chapter.8}% 94
+\BOOKMARK [2][-]{subsection.8.3.1}{C++}{section.8.3}% 95
+\BOOKMARK [2][-]{subsection.8.3.2}{C++ Compiler p\345 Microcontrollerne}{section.8.3}% 96
+\BOOKMARK [2][-]{subsection.8.3.3}{C++ og Interrupts}{section.8.3}% 97
+\BOOKMARK [2][-]{subsection.8.3.4}{C++ p\345 AVR Object Kommunikation}{section.8.3}% 98
+\BOOKMARK [1][-]{section.8.4}{Transmitter Blokken}{chapter.8}% 99
+\BOOKMARK [2][-]{subsection.8.4.1}{Action Klassen \(Kristian T.\)}{section.8.4}% 100
+\BOOKMARK [2][-]{subsection.8.4.2}{Codelock Klassen \(Kristian T.\)}{section.8.4}% 101
+\BOOKMARK [2][-]{subsection.8.4.3}{Time Klassen \(Kristian S.\)}{section.8.4}% 102
+\BOOKMARK [2][-]{subsection.8.4.4}{Transmitter Klassen \(Kristian T.\)}{section.8.4}% 103
+\BOOKMARK [2][-]{subsection.8.4.5}{Tx10 Klassen \(Kristian T.\)}{section.8.4}% 104
+\BOOKMARK [2][-]{subsection.8.4.6}{TxUART Klassen \(Kristian T.\)}{section.8.4}% 105
+\BOOKMARK [1][-]{section.8.5}{Receiver}{chapter.8}% 106
+\BOOKMARK [2][-]{subsection.8.5.1}{Rx10 Klassen \(David\)}{section.8.5}% 107
+\BOOKMARK [2][-]{subsection.8.5.2}{Receiver Control Klassen \(David og Lasse\)}{section.8.5}% 108
+\BOOKMARK [0][-]{section*.62}{Litteraturliste}{}% 109

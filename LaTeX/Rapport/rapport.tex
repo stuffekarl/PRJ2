@@ -1,0 +1,51 @@
+\makeatletter
+\def\input@path{{./AcceptTest/}}
+\makeatother
+
+\input{../preamble/preamble}
+\title{Home Automation System \\ Gruppe 1}
+\author{ 2. Semesterprojekt E2PRJ2-03 \\ Ingeniørhøjskolen, Aarhus Universitet \\ Vejleder: Arne Justesen}
+\date{17. december 2014}
+
+%Så man kan hive samtlige \labels i projektdokumentationen, alle har prefix "P-"
+\externaldocument[P-]{../Projektdokumentation/main}
+
+\begin{document}
+\frontmatter
+\maketitle
+\begin{table} [h]
+	\centering
+	\begin{tabular}{|l|r|l|}
+	\hline 
+	\textbf{Navn} & \textbf{Studienummer} & \textbf{Underskrift~~~~~~~~~~~~~~~~~~~~} \\ \hline
+	Morten Hasseriis Gormsen & 201370948 & \\ && \\ \hline
+	Kristian Thomsen & 201311478 & \\ && \\ \hline
+	Philip Krogh-Pedersen & 201311473 & \\ && \\ \hline
+	Lasse Barner Sivertsen & 201371048 & \\ && \\ \hline
+	Henrik Bagger Jensen & 201304157 & \\ && \\ \hline
+	David Erik Jensen & 11229 & \\ && \\ \hline
+	Kasper Torp Samuelsen & 201311498 & \\ && \\ \hline
+	Kristian Søgaard Sørensen & 20115255 & \\ && \\ \hline
+	\end{tabular}
+\end{table}
+
+\newpage
+
+\input{Resume/resume.tex}
+\input{Abstract/Abstract.tex}
+
+\newpage									
+
+\tableofcontents
+\mainmatter
+
+\input{Indledning/indledning.tex}
+\input{Opgaveformulering/opgaveformulering.tex}
+\input{Projektafgraensning/projektafgraensning.tex}
+\input{Systembeskrivelse/systembeskrivelse.tex}
+\input{Krav/krav.tex}
+\input{Projektbeskrivelse/projektbeskrivelse.tex}
+\input{Konklusion/konklusion.tex}
+\input{Litteraturliste/Litteraturliste.tex}
+
+\end{document}

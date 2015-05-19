@@ -1,0 +1,123 @@
+\subsection{PC UART (Kasper)}
+
+PC'ens UART har til formål at oversætte de data, der er i \textit{Scenario}-objektet, og transmittere dem over på transmitteren. Dette gøres ved brug af et open-source bibliotek kaldet RS232\cite{lib:UART}, der følger den protokol det ønskes at transmittere data med.
+
+For at sende data ud til Transmitteren, skal der oprettes en forbindelse gennem en USB port. her bruges \texttt{UART\_connect} til formålet.
+
+Systemet kræver også at kunne få status på kodelåsen, hvilket metoden \texttt{getLockStatus} står for. Kravet for at bruge \texttt{getLockstatus} er, at \texttt{UART\_connect} har været kørt, for at finde en gyldig port at sende og modtage på.
+
+Når data skal transmitteres bruges \texttt{sendScen}, der tager en reference til et scenarie som parameter, og får oversat dataene i scenariet til at følge UART protokollen, hvorefter den sender dem over til transmitteren.
+
+
+\subsubsection{UART\_connect}
+Metoden \texttt{UART\_connect} bruges til at finde en gyldig COM-port på computeren. Metoden kører igennem alle COM-porte på PCen ved at bruge RS232-bibliotekets funktion \texttt{RS232\_openComport}, til at tjekke om der sidder et RS232 stik i den givne COM-port. Så længe den testede COM-port ikke har et RS232 stik i, tæller metoden Cport\_nr en op, og derved tester den næste COM-port, indtil en gyldig COM-port er fundet.
+
+\begin{lstlisting}
+while (RS232_OpenComport(cport_nr, bdrate, mode))
+		{
+
+			printf("ugyldig Com-port\n");
+			cport_nr++;
+		}
+\end{lstlisting}
+
+\subsubsection{getLockStatus}
+Metoden \texttt{getLockStatus} finder ud af kodelåsens status ved at sende et \texttt{L} ud på COM-porten. Dette sker ved at bruge RS232-bibliotekets funktion \texttt{RS232\_cputs()}. Parametrene for funktionen er COM-port nummeret \texttt{cport\_nr} og den mængde af data i form af chars, der skal sendes.\\
+Da det kræver COM-port nummeret, er det derfor også nødvendigt, at metoden \texttt{UART\_connect} har været kørt, før det er muligt at bruge \texttt{getLockStatus}.
+
+\begin{lstlisting}
+RS232_cputs(cport_nr, "L");
+\end{lstlisting} 
+
+Når beskeden om at tjekke status er blevet sendt til transmitteren, begynder metoden at læse på porten og venter på et svar tilbage fra transmitteren. Svaret vil indeholde et \texttt{L} eller et \texttt{U}, afhængig af om kodelåsen er hhv. låst eller oplåst. Til aflæsning på COM-porten bruges RS232-bibliotekets funktion \texttt{RS232\_PollComport()}.
+Hvis det aflæste er et \texttt{L} returneres \texttt{true}, for at kodelåsen er låst. Hvis et \texttt{U} aflæses returneres \texttt{false}, hvilket betyder kodelåsen er låst op.
+
+\subsubsection{sendScen}
+metoden Send Scen har til opgave at oversætte data fra scenariet til chars som følger UART protokolen.
+til at starte med kører metoden koden nedenfor:
+\begin{lstlisting}
+RS232_cputs(cport_nr, "N");
+\end{lstlisting} 
+\texttt{N}'et betyder at der transmitteren skal være klar på at der nu kommer et ny datastrøm fra PCen. 
+metoden henter herefter den første aktion, så \texttt{get} funktioner kan bruges til at hente data ud af aktionen.
+Kommandoen bliver sat direkte ind, da \texttt{get} funktionen for den returnere en char, derfor sker ingenting med den. 
+Tiden skal regnes om, så transmitteren ved hvor længe der skal gå, før den skal udføre en kommando. Dette sker i koden set nedenfor:
+\begin{lstlisting}
+				//udregner tiden til den gaeldne commando skal ekseveres
+				int timeTillExecution;
+				if (action.getTime() >= Ctime())
+				{
+					timeTillExecution = action.getTime() - Ctime();
+				}
+				else
+				{ 
+					timeTillExecution = 1440 - (Ctime()-action.getTime()); 
+				}
+				//tager sig af at omregne tiden fra int til char og dele tiden op i 2 chars, da den kan ske at fylde mere end 8 bit
+				int timeL1 = timeTillExecution % 16; 
+				int timeL2 = int((floor(timeTillExecution / 16) % 16)
+				int timeH = int((floor(timeTillExecution / 256)));
+
+				TimeLow1 = ((char)timeL1 +48);
+				TimeLow2 = ((char)timeL2+48)
+				TimeHigh = ((char)timeH)+48);
+\end{lstlisting} 
+Integeren \texttt{timeTillexecution} bliver udregnet ud fra en af 2 udregning. Den valgte udregning afhænger af om tidspunktet allerede har passeret systems klokkeslet. Hvis dette er tilfældet køres udregningen i linje 9. Denne udregning tager hensyn til hvor mange minutter der er tilbage på dagen og kører derfor på det angivne klokkeslet næste dag. udregningen i linje 5 sker hvis klokkeslettet endnu ikke har passeret tiden, hvor kommandoen skal udføres. Den udregner hvor mange minutter der er fra det gældende klokkeslet og frem til kommandoen skal udføres.
+\texttt{Ctime()} funktionen som fremgår flere steder er en hjælpefunktionen som returnere en integer med klokkeslettet på PCen.
+Når \texttt{timeTillExecution} er udregnet skal den omsættes til Chars. Da den maksimale værdi der vil fremkomme er 1440(antallet af minutter på et døgn), skal der bruges 2 chars til at gemme dataene i.
+\begin{lstlisting} 
+				int timeL1 = timeTillExecution % 16; 
+				int timeL2 = int((floor(timeTillExecution / 16) % 16)
+				int timeH = int((floor(timeTillExecution / 256)));
+\end{lstlisting} 
+\texttt{timeL1} er hvor de 4 første bit gemmes, derfor tages modulus til 16 for at finde resten, og altså den værdi der skal gemmens i \texttt{timeL1}.
+\texttt{TimeL2} er hvor de midterste bit gemmes, derfor nedrundes der,og denne omskrives til en int. Derefter tages modulus til 16.
+\texttt{timeH} er hvor de 4 største bit gemmes. For at finde værdien der skal gemmes heri, divideres \texttt{timeTillExecution} med 256, og rundes ned, for præcision. Da nedrundingen sker som en double omskrives det til en int, efter nedrundingen.
+
+\texttt{timeL1}, \texttt{timeL2} og \texttt{timeH} har efter udregningen en makimalstørrelse på 16, og kan derfor laves om til en char, med ASCII kode mellem 48 og 64
+\begin{lstlisting} 
+				TimeLow1 = ((char)timeL1 +48);
+				TimeLow2 = ((char)timeL2+48)
+				TimeHigh = ((char)timeH)+48);
+\end{lstlisting} 
+
+Unit oversættes ved brug af en switch set i koden nedenfor:
+\begin{lstlisting} 
+switch (action.getUnit()) // tager sig af at oversaette unit til at foelge UART protocollen
+			{
+			case 1:
+				unit = 'A';
+				break;
+			case 2:
+				unit = 'C';
+				break;
+			case 3:
+				unit = 'P';
+				break;
+			case 4:
+				unit = 'N';
+				break;
+			default: 
+				unit = '0';
+				break;
+
+			}
+\end{lstlisting} 
+Switchen tager uniten ind fra aktionen, og alt efter værdien sættes unit til den char der passer en den gældende unit.
+
+UARTen sender nu dataene fra aktionen ud på COM-porten ved brug af funktionen \texttt{RS232\_cput}
+
+\begin{lstlisting}
+char data[6] = { unit, command, TimeHigh, TimeLow2, TimeLow1 }; // data der skal sendes over
+			strcpy(str[c], data);
+			RS232_cputs(cport_nr, str[c]);
+\end{lstlisting}
+
+når dataene er sendt på på porten, venter UARTen 100milisekunder, hvorefter den begynder forfra med aktion nr.2. Dette sker til alle 20 aktioner er overført til transmitteren, hvorefter metoden afslutter.
+
+
+\subsubsection{stopAll}
+metoden \texttt{stopAll} er til at slukke alle enheder på system. Dette gør metoden ved at bruge funktionen \texttt{RS232\_cput} til at sende et \texttt{S} til transmitteren. Transmitteren ved ifølge protokolen at et \texttt{S} betyder den skal slukke alt.
+\begin{lstlisting}
+RS232_cputs(cport_nr, "S");
+\end{lstlisting}

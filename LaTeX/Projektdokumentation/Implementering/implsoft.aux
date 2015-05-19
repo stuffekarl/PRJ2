@@ -1,0 +1,137 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\@writefile{toc}{\contentsline {chapter}{\chapternumberline {2}Softwareimplementering}{12}{chapter.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.1}Version}{12}{section.2.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.2}PC blokken}{12}{section.2.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}Scenario}{12}{subsection.2.2.1}}
+\@writefile{toc}{\contentsline {subsubsection}{Scenario constructor}{12}{section*.2}}
+\@writefile{toc}{\contentsline {subsubsection}{getAction}{12}{section*.3}}
+\@writefile{toc}{\contentsline {subsubsection}{sortActions}{12}{section*.4}}
+\@writefile{toc}{\contentsline {subsubsection}{operator ostream}{12}{section*.5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.2}Action}{13}{subsection.2.2.2}}
+\@writefile{toc}{\contentsline {subsubsection}{Constructors}{13}{section*.6}}
+\@writefile{toc}{\contentsline {subsubsection}{setUnit}{13}{section*.7}}
+\@writefile{toc}{\contentsline {subsubsection}{setCommand}{13}{section*.8}}
+\@writefile{toc}{\contentsline {subsubsection}{setTime}{13}{section*.9}}
+\@writefile{toc}{\contentsline {subsubsection}{getUnit}{13}{section*.10}}
+\@writefile{toc}{\contentsline {subsubsection}{getCommand}{13}{section*.11}}
+\@writefile{toc}{\contentsline {subsubsection}{getTime}{13}{section*.12}}
+\@writefile{toc}{\contentsline {subsubsection}{ostream operator}{13}{section*.13}}
+\@writefile{toc}{\contentsline {subsubsection}{Less than operator}{13}{section*.14}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.3}UI}{14}{subsection.2.2.3}}
+\@writefile{toc}{\contentsline {subsubsection}{drawMainMenu}{14}{section*.15}}
+\@writefile{toc}{\contentsline {subsubsection}{drawScenList}{14}{section*.16}}
+\@writefile{toc}{\contentsline {subsubsection}{drawScenario}{14}{section*.17}}
+\@writefile{toc}{\contentsline {subsubsection}{drawAskUnit}{15}{section*.18}}
+\@writefile{toc}{\contentsline {subsubsection}{drawAskCommand}{15}{section*.19}}
+\@writefile{toc}{\contentsline {subsubsection}{drawAskTime}{15}{section*.20}}
+\@writefile{toc}{\contentsline {subsubsection}{drawStopPromt}{15}{section*.21}}
+\citation{lib:UART}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.4}PC UART}{16}{subsection.2.2.4}}
+\@writefile{toc}{\contentsline {subsubsection}{UART\_connect}{16}{section*.22}}
+\@writefile{toc}{\contentsline {subsubsection}{getLockStatus}{16}{section*.23}}
+\@writefile{toc}{\contentsline {subsubsection}{sendScen}{16}{section*.24}}
+\@writefile{toc}{\contentsline {subsubsection}{stopAll}{18}{section*.25}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.5}PC Main}{18}{subsection.2.2.5}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.3}Transmitter blokken}{19}{section.2.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}Action klassen}{19}{subsection.2.3.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.2}Codelock klassen}{19}{subsection.2.3.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.3}Time klassen}{19}{subsection.2.3.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.4}Transmitter klassen}{19}{subsection.2.3.4}}
+\@writefile{toc}{\contentsline {subsubsection}{Constructor}{19}{section*.26}}
+\@writefile{toc}{\contentsline {subsubsection}{scenData(char input)}{20}{section*.27}}
+\@writefile{toc}{\contentsline {subsubsection}{checkTime(unsigned int theTime)}{20}{section*.28}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.5}Tx10 klassen}{20}{subsection.2.3.5}}
+\@writefile{toc}{\contentsline {subsubsection}{Constructor}{20}{section*.29}}
+\@writefile{toc}{\contentsline {subsubsection}{unsigned char Translate(unsigned char bitCode)}{21}{section*.30}}
+\@writefile{toc}{\contentsline {subsubsection}{sendAction(Action \&)}{21}{section*.31}}
+\@writefile{toc}{\contentsline {subsubsection}{sendCrossing(unsigned char send)}{21}{section*.32}}
+\@writefile{toc}{\contentsline {subsubsection}{waitMs()}{21}{section*.33}}
+\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces Output p\IeC {\r a} x10Data n\IeC {\r a}r en der skal sendes 1 i en nulgennemgang.}}{22}{figure.2.18}}
+\newlabel{fig:sendCrossingtest}{{\M@TitleReference {18}{Output p\IeC {\r a} x10Data n\IeC {\r a}r en der skal sendes 1 i en nulgennemgang.}}{22}{Output på x10Data når en der skal sendes 1 i en nulgennemgang}{figure.2.18}{}}
+\@writefile{toc}{\contentsline {subsubsection}{intHandler()}{22}{section*.34}}
+\@writefile{toc}{\contentsline {subsubsection}{turnAllOff()}{23}{section*.35}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.6}TxUART klassen}{23}{subsection.2.3.6}}
+\@writefile{toc}{\contentsline {subsubsection}{Constructor}{23}{section*.36}}
+\@writefile{toc}{\contentsline {subsubsection}{rxInt()}{23}{section*.37}}
+\@writefile{toc}{\contentsline {subsubsection}{sendChar(char)}{24}{section*.38}}
+\@writefile{toc}{\contentsline {subsubsection}{sendString(const char * sendMe)}{24}{section*.39}}
+\@writefile{toc}{\contentsline {subsubsection}{sendNumber(int sendMe)}{24}{section*.40}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.4}Receiver}{25}{section.2.4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.1}Rx10 klassen}{25}{subsection.2.4.1}}
+\@writefile{toc}{\contentsline {subsubsection}{waitMs()}{25}{section*.41}}
+\@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces M\IeC {\r a}ling af waitMs() metoden.}}{25}{figure.2.19}}
+\newlabel{fig:RxwaitMStest}{{\M@TitleReference {19}{M\IeC {\r a}ling af waitMs() metoden.}}{25}{Måling af waitMs() metoden}{figure.2.19}{}}
+\@writefile{toc}{\contentsline {subsubsection}{interruptHandler()}{26}{section*.42}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {2.1}Der ventes 0.5 ms og der tjekkes efter startbit.}{26}{lstlisting.2.1}}
+\@writefile{toc}{\contentsline {subsubsection}{translate(unsigned char zeroCrossingCode)}{27}{section*.43}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.2}Receiver control klassen}{27}{subsection.2.4.2}}
+\@setckpt{implsoft}{
+\setcounter{page}{28}
+\setcounter{equation}{0}
+\setcounter{enumi}{0}
+\setcounter{enumii}{0}
+\setcounter{enumiii}{0}
+\setcounter{enumiv}{0}
+\setcounter{footnote}{0}
+\setcounter{mpfootnote}{0}
+\setcounter{@memmarkcntra}{0}
+\setcounter{storedpagenumber}{1}
+\setcounter{book}{0}
+\setcounter{part}{0}
+\setcounter{chapter}{2}
+\setcounter{section}{4}
+\setcounter{subsection}{2}
+\setcounter{subsubsection}{0}
+\setcounter{paragraph}{0}
+\setcounter{subparagraph}{0}
+\setcounter{@ppsavesec}{0}
+\setcounter{@ppsaveapp}{0}
+\setcounter{vslineno}{0}
+\setcounter{poemline}{0}
+\setcounter{modulo@vs}{0}
+\setcounter{memfvsline}{0}
+\setcounter{verse}{0}
+\setcounter{chrsinstr}{0}
+\setcounter{poem}{0}
+\setcounter{newflo@tctr}{4}
+\setcounter{@contsubnum}{0}
+\setcounter{maxsecnumdepth}{2}
+\setcounter{sidefootnote}{0}
+\setcounter{pagenote}{0}
+\setcounter{pagenoteshadow}{0}
+\setcounter{memfbvline}{0}
+\setcounter{bvlinectr}{0}
+\setcounter{cp@cntr}{0}
+\setcounter{ism@mctr}{0}
+\setcounter{xsm@mctr}{0}
+\setcounter{csm@mctr}{0}
+\setcounter{ksm@mctr}{0}
+\setcounter{xksm@mctr}{0}
+\setcounter{cksm@mctr}{0}
+\setcounter{msm@mctr}{0}
+\setcounter{xmsm@mctr}{0}
+\setcounter{cmsm@mctr}{0}
+\setcounter{bsm@mctr}{0}
+\setcounter{workm@mctr}{0}
+\setcounter{sheetsequence}{29}
+\setcounter{lastsheet}{28}
+\setcounter{lastpage}{27}
+\setcounter{figure}{19}
+\setcounter{lofdepth}{1}
+\setcounter{table}{0}
+\setcounter{lotdepth}{1}
+\setcounter{AM@survey}{0}
+\setcounter{parentequation}{0}
+\setcounter{r@tfl@t}{0}
+\setcounter{LT@tables}{0}
+\setcounter{LT@chunks}{0}
+\setcounter{Item}{0}
+\setcounter{Hfootnote}{0}
+\setcounter{memhycontfloat}{0}
+\setcounter{Hpagenote}{0}
+\setcounter{bookmark@seq@number}{27}
+\setcounter{lstnumber}{9}
+\setcounter{section@level}{2}
+\setcounter{lstlisting}{1}
+}

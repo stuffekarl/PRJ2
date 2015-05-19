@@ -1,0 +1,17 @@
+/*
+ * temp.cpp
+ *
+ * Created: 2014-11-21 08:40:32
+ *  Author: Kristian
+ */ 
+
+#include <avr/io.h>
+#include <avr/interrupt.h>
+#include "Tx10.h"
+
+
+int main(void){
+	DDRC = 0xFF;
+	sei(); //global interrupt enable	
+    while(1);
+}

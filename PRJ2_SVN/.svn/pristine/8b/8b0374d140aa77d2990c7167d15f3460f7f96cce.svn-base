@@ -1,0 +1,65 @@
+/*
+ * Action.cpp
+ *
+ * Created: 2014-11-21 12:54:39
+ *  Author: Kristian Thomsen
+ */ 
+
+#include "Action.h"
+
+Action::Action(){
+	time = 0;
+	unit = 0;
+	command = 0;
+	houseCode = 0;	
+}
+
+void Action::setAction(unsigned char unit, unsigned char command, unsigned int time){
+	if ((unit == 1) || (unit == 2)){
+		houseCode = 1;
+		this->unit = unit;
+	}
+	else if (unit == 4){
+		houseCode = 2;
+		this->unit = unit;
+	}
+	else if (unit == 8){
+		houseCode = 3;
+		this->unit = unit;
+	}
+	else this->unit = 0;
+	
+	if (command <= 11){
+		this->command = command;
+	}
+	else this->command = 0;
+			
+	if (time < 1440){
+		this->time = time;
+	}
+	else this->time = 0;
+}
+
+unsigned char Action::getHouseCode(){
+	return houseCode;
+}
+
+unsigned char Action::getUnit(){
+	return unit;
+}
+
+unsigned char Action::getCommand(){
+	return command;
+}
+
+unsigned char Action::getTimeH(){
+	return time >> 8;
+}
+
+unsigned char Action::getTimeL(){
+	return time;
+}
+
+unsigned int Action::getTime(){
+	return time;
+}

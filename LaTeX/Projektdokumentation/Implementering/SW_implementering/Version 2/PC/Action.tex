@@ -1,0 +1,39 @@
+\subsection{Action (Kristian S.)}
+
+\subsubsection{Constructors}
+
+Aktion klassen indeholder to constructors: En default constructor, der kaldes 20 gange når Scenario objektet først oprettes, og en explicit constructor til de prædefinere scenarier. 
+
+\subsubsection{setUnit}
+
+set-metode til at sætte aktionens enhedsværdi.
+
+\subsubsection{setCommand}
+
+Set-metode til aktionens kommandoværdi. Funktionen oversætter kommandoens talværdi til en char, der vil blive brugt i UART klassen.
+
+\subsubsection{setTime}
+
+Set-metode til aktionens tidsværdi.
+
+\subsubsection{getUnit}
+
+Get-metode til aktionens enhedsværdi.
+
+\subsubsection{getCommand}
+
+Get-metode til aktionens kommandoværdi.
+
+\subsubsection{getTime}
+
+Set-metode til aktionens tidsværdi
+
+\subsubsection{ostream operator}
+
+\texttt{Ostream} operatoren er overloadet og implementeret som en fri funktion, og kan derfor ikke tilgå de private members direkte.
+
+\subsubsection{Less than operator}
+
+Yderligere er der tilføjet en overload af operatoren \texttt{<}, så et Action objekt kan sammenlignes direkte på dens tids værdi.
+
+\clearpage

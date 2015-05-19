@@ -1,0 +1,47 @@
+﻿
+
+#include "Receiver.h"
+
+	//Setting up object for use of getReceiver
+Receiver myReceiver;
+
+Receiver::Receiver(){
+	
+}
+
+void Receiver::input(char houseCode, char unitCode, char command){
+		//HouseCode = 0 means shut everything down.
+	if (houseCode_ == 0){
+		myLampePtr->turnOff();
+	}
+		// Turn off local electrical object.
+	else if(houseCode == this->houseCode_ && unitCode == this->unitCode_){		
+		if (command == '0'){
+			myLampePtr->turnOff();
+		}
+			// Turn on local electrical object.
+		else if (command == '1'){
+			myLampePtr->turnOn();
+		}
+			// Dim lamp.
+		else if (command > '2' && command < 0b00001011){
+			myLampePtr->dim(command);
+		}
+		
+	}
+}
+
+void Receiver::setUnitcode(char key){
+	this->unitCode_ = key;
+}
+
+void Receiver::setLampePtr( Lampe &setme)
+{
+	this->myLampePtr = &setme;
+}
+
+
+Receiver * getMyReceiver(){
+	return &myReceiver;
+}
+

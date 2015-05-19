@@ -1,0 +1,25 @@
+%Skrevet af David
+\section{Generelt om Microcontrollers (David)}
+I vores projekt har vi valgt at bruge Atmels ATMega32 microcontroller, fordi vi har kendskab til netop denne via MSYS kurset på første semester, den blev også brugt til vores bil på selv samme semester.
+
+\subsection{C++}
+I vores projekt har vi valgt at programmere i C++ frem for C. På microcontrolleren får vi den store fordel at vi kan opbygge alt i klasser frem for frie funktioner.
+
+Dette er valgt for gør det nemmere for os som udviklere at kode hver klasse, og kun have den logik, som skal bruges i denne. Dette gør det nemmere at teste koden, samt at dele softwareopgaverne ud blandt flere personer, fordi at så længe klassen overholder vores designdokument, er det nemt at sætte det hele sammen til sidst, hvor alt kode er skrevet.
+
+Dette giver os den store fordel at vi kan gøre brug af de såkaldte ''The Three Pillars of Object-Oriented Programming'' (indkapsling, arv og polimorfi), hvor det giver mening.
+
+Vi gør dog kun rigtig brug af Encapsulation da vi ikke har vurderet at, der var nogen steder det ville give mening at anvende Inheritance og Polymorphism. 
+Encapsulation giver rigtig meget mening for os, da information hiding hjælper med at beskytte vigtigt private data, som eksisterer eksempelvis i vores boundry klasser til X.10 kommunikation. 
+I praksis betyder det at kun klassens egen metoder må ændre dets private data. Dette er rigtig smart fordi at man så er helt sikker på at der ikke bliver unødigt eller fejlagtigt ændret i en variable som potentielt kan ødelække klassens funktionalitet.
+
+\subsection{C++ Compiler på Microcontrollerne}\label{sec:micro}
+Da vi skulle undersøge hvordan man kunne anvende C++ på vores microcontroller, så vi først på Atmels hjemmeside\cite{lib:atmel} for at finde ud af om der er nogle ting der skal gøres specielt opmærksomt på. Vi startede med at skrive vores kode inline, da der har været god erfaring i gruppen med at gøre det i Visual Studio 2013, dog viste dette sig at give massive problemer når der blev kodet inline i Atmel Studio 6.2. Problemerne var bl.a. at indlæse variabler, som blev erklæret i toppen af dokumentet, men længere nede i metoderne. Derfor blev det vedtaget, at der skulle bruges den klassiske struktur med adskilte header og .cpp filer.
+
+\subsection{C++ og Interrupts}
+Der var ingen i gruppen, der havde kendskab til hvordan interrups på microcontrollerne i C++ fungerede, derfor blev der hentet inspiration fra et open source projekt\cite{lib:waterproofman}. Det viste sig at fungere ganske godt og uden de store problemer og gruppen var på kort tid i stand til at opstille en test med interrupts i C++.
+
+\subsection{C++ på AVR Object Kommunikation}
+Normalt kan objekter oprettes i en seperat cpp fil, hvorefter man kan anvende dot-operatoren til at tilgå et objekts metoder og variable. Dette fungerede ikke i Atmel Studio 6.2, da compileren ikke kunne finde de givne objekter, derfor var man nød til at lade de objekter der skulle interagere med hinanden via en fri funktion, der returnerede en pointer til det givne objekt.
+
+\clearpage

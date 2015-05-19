@@ -1,0 +1,42 @@
+﻿#include "Receiver.h"
+#include "StkSwitch.h"
+#include "Rx10.h"
+#include "RxUART.h"
+#include "Lampe.h"
+
+int main(){
+	DDRC = 0xFF;
+	
+	char key = 0;
+	StkSwitch myStkSwitch;
+	
+	while(key == 0){
+		//Stays in here until one of the two buttons is pushed
+		PORTC = 0xFF;
+		if(myStkSwitch.switchOn(2)){
+			key = 1;
+			PORTC = 0b111114101;
+		}
+		else if (myStkSwitch.switchOn(3)){
+			PORTC = 0b11111011;
+			key = 2;
+		}
+	}
+	//Setting unitCode via Receiverpointer.
+	getMyReceiver()->setUnitcode(key); 
+	
+	//Setting up relation between Rx10 and RxUART
+	getMyRx10()->setRxUART(getMyRxUART());
+	getMyReceiver()->setLampePtr(getMyLampe());
+	getMyRx10()->setReceiver(getMyReceiver());
+	
+	
+	// Enable interrupts
+	sei();
+	
+	while(1){
+		
+	}
+	
+	return 0;
+}

@@ -1,0 +1,170 @@
+\changetocdepth {2}
+\select@language {danish}
+\contentsline {chapter}{Indhold}{ii}{section*.1}
+\contentsline {chapter}{\chapternumberline {1}Projektformulering (Alle)}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Version}{1}{section.1.1}
+\contentsline {chapter}{\chapternumberline {2}Kravspecifikation (Alle)}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}Version}{3}{section.2.1}
+\contentsline {section}{\numberline {2.2}Systembeskrivelse}{3}{section.2.2}
+\contentsline {subsubsection}{PC-software}{3}{section*.2}
+\contentsline {subsubsection}{Scenarier}{3}{section*.3}
+\contentsline {subsubsection}{Transmitter-controller}{4}{section*.4}
+\contentsline {subsubsection}{Receiver-controller}{4}{section*.5}
+\contentsline {subsubsection}{Kodel\IeC {\r a}s DE2}{4}{section*.6}
+\contentsline {section}{\numberline {2.3}Akt\IeC {\o }r-kontekst diagram}{5}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Akt\IeC {\o }rbeskrivelse}{5}{subsection.2.3.1}
+\contentsline {subsubsection}{Bruger (Prim\IeC {\ae }r akt\IeC {\o }r)}{5}{section*.7}
+\contentsline {subsubsection}{Elektriske enheder (Sekund\IeC {\ae }r akt\IeC {\o }r)}{5}{section*.8}
+\contentsline {section}{\numberline {2.4}Use Case diagram}{5}{section.2.4}
+\contentsline {section}{\numberline {2.5}Use Case beskrivelse}{6}{section.2.5}
+\contentsline {section}{\numberline {2.6}Funktionelle Krav}{10}{section.2.6}
+\contentsline {section}{\numberline {2.7}Ikke Funktionelle Krav}{10}{section.2.7}
+\contentsline {chapter}{\chapternumberline {3}Accepttest (Alle)}{11}{chapter.3}
+\contentsline {section}{\numberline {3.1}Version}{11}{section.3.1}
+\contentsline {section}{\numberline {3.2}Funktionelle Krav}{11}{section.3.2}
+\contentsline {section}{\numberline {3.3}Ikke Funktionelle Krav}{14}{section.3.3}
+\contentsline {chapter}{\chapternumberline {4}Systemarkitektur (Alle)}{16}{chapter.4}
+\contentsline {section}{\numberline {4.1}Version}{16}{section.4.1}
+\contentsline {section}{\numberline {4.2}SysML diagrammer}{16}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}BDD for system kontekst}{16}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}IBD for system kontekst}{17}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}BDD for systemet}{18}{subsection.4.2.3}
+\contentsline {subsection}{\numberline {4.2.4}IBD for systemet}{19}{subsection.4.2.4}
+\contentsline {subsection}{\numberline {4.2.5}IBD for Transmitter-blokken}{20}{subsection.4.2.5}
+\contentsline {subsection}{\numberline {4.2.6}IBD for X.10-enhed i transmitter-blokken}{20}{subsection.4.2.6}
+\contentsline {subsection}{\numberline {4.2.7}IBD for receivers}{21}{subsection.4.2.7}
+\contentsline {subsection}{\numberline {4.2.8}IBD for X.10 enhed i lys-blokken}{22}{subsection.4.2.8}
+\contentsline {section}{\numberline {4.3}Signalbeskrivelser}{23}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Signaltyper}{23}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Gr\IeC {\ae }nseflader}{24}{subsection.4.3.2}
+\contentsline {section}{\numberline {4.4}Softwarearkitektur}{24}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Sekvensdiagram for PC [Use Case 1: Opret Scenarie]}{24}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}Sekvensdiagram for PC [Use Case 2: V\IeC {\ae }lg Scenarie]}{26}{subsection.4.4.2}
+\contentsline {subsection}{\numberline {4.4.3}Sekvensdiagram for PC [Use Case 3: Stop Scenarie]}{27}{subsection.4.4.3}
+\contentsline {subsection}{\numberline {4.4.4}Klassediagram for PC}{28}{subsection.4.4.4}
+\contentsline {subsection}{\numberline {4.4.5}Sekvensdiagram for Transmitter [Use Case 1: Opret Scenarie]}{29}{subsection.4.4.5}
+\contentsline {subsection}{\numberline {4.4.6}Sekvensdiagram for Transmitter [Use Case 3: Stop Scenarie]}{30}{subsection.4.4.6}
+\contentsline {subsection}{\numberline {4.4.7}Sekvensdiagram for Transmitter [Use Case 4: Afvikl Scenarie]}{31}{subsection.4.4.7}
+\contentsline {subsection}{\numberline {4.4.8}Klassediagram for Transmitter}{32}{subsection.4.4.8}
+\contentsline {subsection}{\numberline {4.4.9}Sekvensdiagram for Receiver [Use Case 4: Afvikl Scenarie]}{33}{subsection.4.4.9}
+\contentsline {subsection}{\numberline {4.4.10}Klassediagram for Receiver}{34}{subsection.4.4.10}
+\contentsline {chapter}{\chapternumberline {5}Hardware Design}{35}{chapter.5}
+\contentsline {section}{\numberline {5.1}Version}{35}{section.5.1}
+\contentsline {section}{\numberline {5.2}Blokopdeling}{35}{section.5.2}
+\contentsline {section}{\numberline {5.3}Transmitter}{36}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}18V AC Transformer}{36}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}Sp\IeC {\ae }ndingsforsyning (Morten)}{36}{subsection.5.3.2}
+\contentsline {subsection}{\numberline {5.3.3}Kodel\IeC {\r a}s (Lasse og Henrik)}{36}{subsection.5.3.3}
+\contentsline {subsection}{\numberline {5.3.4}Zerocross Detector (Morten og Philip)}{36}{subsection.5.3.4}
+\contentsline {subsection}{\numberline {5.3.5}Carrier Generator (Philip og Lasse)}{38}{subsection.5.3.5}
+\contentsline {subsubsection}{H\IeC {\o }jpasfilter}{39}{section*.9}
+\contentsline {section}{\numberline {5.4}Receiver}{40}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}Lysmodul (Morten)}{40}{subsection.5.4.1}
+\contentsline {subsection}{\numberline {5.4.2}Carrier Detector (Morten, Henrik og Lasse)}{40}{subsection.5.4.2}
+\contentsline {subsubsection}{B\IeC {\r a}ndpasfilter}{40}{section*.10}
+\contentsline {subsubsection}{Envelope Detector}{42}{section*.11}
+\contentsline {subsubsection}{Komparator}{42}{section*.12}
+\contentsline {chapter}{\chapternumberline {6}Software Design}{44}{chapter.6}
+\contentsline {section}{\numberline {6.1}Version}{44}{section.6.1}
+\contentsline {section}{\numberline {6.2}PC Blokken}{44}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}Action (Kristian T.)}{44}{subsection.6.2.1}
+\contentsline {subsection}{\numberline {6.2.2}PC Controller}{46}{subsection.6.2.2}
+\contentsline {subsection}{\numberline {6.2.3}Scenario (Kristian S.)}{46}{subsection.6.2.3}
+\contentsline {subsection}{\numberline {6.2.4}UART (Kasper)}{47}{subsection.6.2.4}
+\contentsline {subsection}{\numberline {6.2.5}UI (Kasper)}{49}{subsection.6.2.5}
+\contentsline {section}{\numberline {6.3}Transmitter Blokken}{52}{section.6.3}
+\contentsline {subsection}{\numberline {6.3.1}Action (Kristian T.)}{52}{subsection.6.3.1}
+\contentsline {subsection}{\numberline {6.3.2}Codelock (David)}{53}{subsection.6.3.2}
+\contentsline {subsection}{\numberline {6.3.3}Time (Kasper)}{53}{subsection.6.3.3}
+\contentsline {subsection}{\numberline {6.3.4}Transmitter (Kristian S.)}{55}{subsection.6.3.4}
+\contentsline {subsection}{\numberline {6.3.5}Transmitter UART (Kasper)}{56}{subsection.6.3.5}
+\contentsline {subsection}{\numberline {6.3.6}Tx10 (Kristian T.)}{57}{subsection.6.3.6}
+\contentsline {section}{\numberline {6.4}Receiver Blokken}{58}{section.6.4}
+\contentsline {subsection}{\numberline {6.4.1}Lampe (David)}{58}{subsection.6.4.1}
+\contentsline {subsection}{\numberline {6.4.2}Receiver (David)}{59}{subsection.6.4.2}
+\contentsline {subsection}{\numberline {6.4.3}Rx10 (Kristian T.)}{60}{subsection.6.4.3}
+\contentsline {section}{\numberline {6.5}Protokoller (Kristian T., Kristian S., David og Kasper)}{61}{section.6.5}
+\contentsline {subsection}{\numberline {6.5.1}Protokol for UART}{61}{subsection.6.5.1}
+\contentsline {subsection}{\numberline {6.5.2}Protokol for X.10}{62}{subsection.6.5.2}
+\contentsline {section}{\numberline {6.6}Porte (Kristian T., Kristian S., David og Kasper)}{63}{section.6.6}
+\contentsline {subsubsection}{Transmitter}{63}{section*.13}
+\contentsline {subsubsection}{Receiver}{63}{section*.14}
+\contentsline {section}{\numberline {6.7}Statemachines (Kristian S. og David)}{64}{section.6.7}
+\contentsline {subsubsection}{Statemachine over UART/Transmitter }{64}{section*.15}
+\contentsline {subsubsection}{Statemachine over X.10/Transmitter }{65}{section*.16}
+\contentsline {subsubsection}{Statemachine over X.10/Receiver}{66}{section*.17}
+\contentsline {chapter}{\chapternumberline {7}Hardwareimplementering}{67}{chapter.7}
+\contentsline {section}{\numberline {7.1}Version}{67}{section.7.1}
+\contentsline {section}{\numberline {7.2}Sp\IeC {\ae }ndingsforsyning (Lasse)}{67}{section.7.2}
+\contentsline {section}{\numberline {7.3}Kodel\IeC {\r a}s (Philip)}{67}{section.7.3}
+\contentsline {section}{\numberline {7.4}Zerocross Detector (Morten og Henrik)}{70}{section.7.4}
+\contentsline {section}{\numberline {7.5}Carrier Generator (Lasse og Philip)}{72}{section.7.5}
+\contentsline {section}{\numberline {7.6}Lysmodul (Kristian S.)}{76}{section.7.6}
+\contentsline {section}{\numberline {7.7}Carrier Detector (Morten og David)}{77}{section.7.7}
+\contentsline {chapter}{\chapternumberline {8}Softwareimplementering}{80}{chapter.8}
+\contentsline {section}{\numberline {8.1}Version}{80}{section.8.1}
+\contentsline {section}{\numberline {8.2}PC blokken}{80}{section.8.2}
+\contentsline {subsection}{\numberline {8.2.1}Scenario (Kristian S.)}{80}{subsection.8.2.1}
+\contentsline {subsubsection}{Scenario constructor}{80}{section*.18}
+\contentsline {subsubsection}{getAction}{80}{section*.19}
+\contentsline {subsubsection}{sortActions}{80}{section*.20}
+\contentsline {subsubsection}{clearActions}{80}{section*.21}
+\contentsline {subsubsection}{Ostream Operator}{80}{section*.22}
+\contentsline {subsection}{\numberline {8.2.2}Action (Kristian S.)}{81}{subsection.8.2.2}
+\contentsline {subsubsection}{Constructors}{81}{section*.23}
+\contentsline {subsubsection}{setUnit}{81}{section*.24}
+\contentsline {subsubsection}{setCommand}{81}{section*.25}
+\contentsline {subsubsection}{setTime}{81}{section*.26}
+\contentsline {subsubsection}{getUnit}{81}{section*.27}
+\contentsline {subsubsection}{getCommand}{81}{section*.28}
+\contentsline {subsubsection}{getTime}{81}{section*.29}
+\contentsline {subsubsection}{Ostream Operator}{81}{section*.30}
+\contentsline {subsubsection}{Less Than Operator}{81}{section*.31}
+\contentsline {subsection}{\numberline {8.2.3}UI (Kasper)}{82}{subsection.8.2.3}
+\contentsline {subsubsection}{drawMainMenu}{82}{section*.32}
+\contentsline {subsubsection}{drawScenList}{82}{section*.33}
+\contentsline {subsubsection}{drawScenario}{82}{section*.34}
+\contentsline {subsubsection}{drawAskUnit}{83}{section*.35}
+\contentsline {subsubsection}{drawAskCommand}{83}{section*.36}
+\contentsline {subsubsection}{drawAskTime}{83}{section*.37}
+\contentsline {subsubsection}{drawStopPromt}{83}{section*.38}
+\contentsline {subsection}{\numberline {8.2.4}PC UART (Kasper)}{84}{subsection.8.2.4}
+\contentsline {subsubsection}{UART\_connect}{84}{section*.39}
+\contentsline {subsubsection}{getLockStatus}{84}{section*.40}
+\contentsline {subsubsection}{sendScen}{84}{section*.41}
+\contentsline {subsubsection}{stopAll}{86}{section*.42}
+\contentsline {subsection}{\numberline {8.2.5}PC Main (Henrik)}{86}{subsection.8.2.5}
+\contentsline {section}{\numberline {8.3}Generelt om Microcontrollers (David)}{87}{section.8.3}
+\contentsline {subsection}{\numberline {8.3.1}C++}{87}{subsection.8.3.1}
+\contentsline {subsection}{\numberline {8.3.2}C++ Compiler p\IeC {\r a} Microcontrollerne}{87}{subsection.8.3.2}
+\contentsline {subsection}{\numberline {8.3.3}C++ og Interrupts}{87}{subsection.8.3.3}
+\contentsline {subsection}{\numberline {8.3.4}C++ p\IeC {\r a} AVR Object Kommunikation}{87}{subsection.8.3.4}
+\contentsline {section}{\numberline {8.4}Transmitter Blokken}{88}{section.8.4}
+\contentsline {subsection}{\numberline {8.4.1}Action Klassen (Kristian T.)}{88}{subsection.8.4.1}
+\contentsline {subsection}{\numberline {8.4.2}Codelock Klassen (Kristian T.)}{88}{subsection.8.4.2}
+\contentsline {subsection}{\numberline {8.4.3}Time Klassen (Kristian S.)}{88}{subsection.8.4.3}
+\contentsline {subsection}{\numberline {8.4.4}Transmitter Klassen (Kristian T.)}{88}{subsection.8.4.4}
+\contentsline {subsubsection}{Constructor}{88}{section*.43}
+\contentsline {subsubsection}{scenData(char input)}{89}{section*.44}
+\contentsline {subsubsection}{checkTime(unsigned int theTime)}{89}{section*.45}
+\contentsline {subsection}{\numberline {8.4.5}Tx10 Klassen (Kristian T.)}{89}{subsection.8.4.5}
+\contentsline {subsubsection}{Constructor}{89}{section*.46}
+\contentsline {subsubsection}{unsigned char Translate(unsigned char bitCode)}{90}{section*.47}
+\contentsline {subsubsection}{sendAction(Action \&)}{90}{section*.48}
+\contentsline {subsubsection}{sendCrossing(unsigned char send)}{90}{section*.49}
+\contentsline {subsubsection}{waitMs()}{90}{section*.50}
+\contentsline {subsubsection}{intHandler()}{91}{section*.51}
+\contentsline {subsubsection}{turnAllOff()}{92}{section*.52}
+\contentsline {subsection}{\numberline {8.4.6}TxUART Klassen (Kristian T.)}{92}{subsection.8.4.6}
+\contentsline {subsubsection}{Constructor}{92}{section*.53}
+\contentsline {subsubsection}{rxInt()}{92}{section*.54}
+\contentsline {subsubsection}{sendChar(char)}{93}{section*.55}
+\contentsline {subsubsection}{sendString(const char * sendMe)}{93}{section*.56}
+\contentsline {subsubsection}{sendNumber(int sendMe)}{93}{section*.57}
+\contentsline {section}{\numberline {8.5}Receiver}{94}{section.8.5}
+\contentsline {subsection}{\numberline {8.5.1}Rx10 Klassen (David)}{94}{subsection.8.5.1}
+\contentsline {subsubsection}{waitMs()}{94}{section*.58}
+\contentsline {subsubsection}{interruptHandler()}{95}{section*.59}
+\contentsline {subsubsection}{translate(unsigned char zeroCrossingCode)}{96}{section*.60}
+\contentsline {subsection}{\numberline {8.5.2}Receiver Control Klassen (David og Lasse)}{96}{subsection.8.5.2}
+\contentsline {chapter}{Litteraturliste}{97}{section*.62}

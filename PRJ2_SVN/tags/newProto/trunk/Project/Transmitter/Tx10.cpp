@@ -1,0 +1,161 @@
+/*
+ * Tx10.cpp
+ *
+ * Created: 2014-11-21 08:43:59
+ *  Author: Kristian Thomsen & David Jensen
+ */ 
+
+#include "Tx10.h"
+#include "Action.h"
+
+Tx10 myTx10;
+
+Tx10 * getMyTx10(){
+	return &myTx10;
+}
+
+//volatile bool Tx10::start = false;
+
+Tx10::Tx10(){
+	buffCount = 0;
+	pattCount = 0;
+	house = 0xFF;
+	unit = 0xFF;
+	command = 0xFF;
+	start = false;
+	buffer = 0;
+
+	
+	//Timer0 initialization:
+	TCCR0 = TCCR0 | 0b00011001; //CTC mode, toggle on compare match, no prescaler
+	OCR0 = 14; //see mathcad calcs
+	TCNT0 = 0; //reset timer
+	
+	//Timer2 initialization:
+	TCCR2 = 0b00000000; //Normal mode, no clock source = timer off
+	
+	//INT0 initialization:
+	DDRD = DDRD & 0b11111011; // PD2/INT0 as input
+	MCUCR = MCUCR | 0b00000001; //interrupt on toggle INT0
+	GICR = GICR | 0b01000000; // INT0 enabled
+
+	DDRC = 0xFF; //output for debugging
+}
+
+void Tx10::sendAction(Action & myAction){
+	this->house = translate(myAction.getHouseCode());
+	this->unit = translate(myAction.getUnit());
+	this->command = translate(myAction.getCommand());
+	this->start = true;
+}
+
+void Tx10::sendCrossing(unsigned char send){
+	if (send){
+		DDRB = DDRB | 0b00001000; //output on PB3
+		waitMs();
+		DDRB = DDRB & 0b11110111; //input on PB3
+	}
+}
+
+void Tx10::waitMs(){
+	TCNT2 = (255-59); //reset timer2, see mathcad calcs
+	TCCR2 = TCCR2 | 0b00000100; // start timer2 with 64 prescaler
+	while ((TIFR & 0b01000000) == 0); //wait for overflow on Timer2	
+	TCCR2 = TCCR2 & 0b11111011; //Stop timer2
+	TIFR = TIFR | 0b01000000; // clear overflow flag by writing 1
+}
+
+ISR(INT0_vect){
+	getMyTx10()->intHandler();
+}
+
+void Tx10::intHandler(){
+	if (start){ //check if the Tx is supposed to transmit
+		if (buffCount == 0){
+			if (pattCount == 0){
+				buffer = 0b11101111;
+				buffCount = 4;
+			}
+			else if (pattCount == 1){
+				buffer = house;
+				buffCount = 8;
+			}
+			else if (pattCount == 2){
+				buffer = unit;
+				buffCount = 8;
+			}
+			else if (pattCount == 3){
+				buffer = command;
+				buffCount = 8;
+			}
+			else if (pattCount == 4){
+				buffer = 0b00000011;
+				buffCount = 6;
+			}
+			else if (pattCount == 5){
+				buffer = house;
+				buffCount = 8;
+			}
+			else if (pattCount == 6){
+				buffer = unit;
+				buffCount = 8;
+			}
+			else if (pattCount == 7){
+				buffer = command;
+				buffCount = 8;
+			}
+			else if (pattCount == 8){
+				buffer = 0b11110000;
+				buffCount = 4;
+			}
+			else if (pattCount == 9){
+				start = false;
+				pattCount = 0;
+			}
+			pattCount++;
+		}
+		
+		if (buffCount > 0){
+			sendCrossing((buffer & 0b10000000)); //Send out the MSB
+			buffCount--;
+			buffer = (buffer << 1); //shifts the buffer one time to the left
+		}
+	}
+	PORTC = ~getMyTx10()->buffer; //For debugging
+}
+
+void Tx10::turnAllOff(){
+	this->house = translate(0);	// 0 means off for all devices
+	this->unit = translate(0);		//dummy
+	this->command = translate(0);	//dummy
+	this->start = true; //start transmitting on next zero crossing
+}
+
+unsigned char Tx10::translate( unsigned char bitCode ){
+	unsigned char temp = 0;
+	if (bitCode & 0b00001000){
+		temp |= 0b10000000;
+	}
+	else{
+		temp |= 0b01000000;
+	}
+	if (bitCode & 0b00000100){
+		temp |= 0b00100000;
+	}
+	else{
+		temp |= 0b00010000;
+	}
+	if (bitCode & 0b00000010){
+		temp |= 0b00001000;
+	}
+	else{
+		temp |= 0b00000100;
+	}
+	if (bitCode & 0b00000001){
+		temp |= 0b00000010;
+	}
+	else{
+		temp |= 0b00000001;
+	}
+	return temp;
+}

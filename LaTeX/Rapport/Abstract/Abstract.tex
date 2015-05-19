@@ -1,0 +1,16 @@
+\chapter{Abstract}
+This document is about a second semester project at Aarhus University, School of engineering, for students studying electrical-, computer science- and high voltage-engineering. The project is about the design and implementation of a Home Automation System, which can prevent break-ins by simulating the presence of people in the household.
+
+The presence of people is simulated by electrical devices being turned on and off automatically, which will lead a possible burglar to think someone is in the house.
+
+The system is controlled from a PC, which transmits data to a central transmit-controller. The transmit-controller uses the X.10 protocol for data transmission, over the house mains, to communicate with several receiver-controllers. The transmitter emits signals, which among other things, will make the receivers turn lights on or off.
+The software for the PC and the microcontrollers is coded in C++. The hardware is tested on breadboards, and then implemented on VERO-boards. The microcontrollers are Atmel STK500 kits with an ATMega32 controller mounted. The system also includes a code-lock, made on a DE2-Board.
+
+The system specification contains some functions, which hasn’t been implemented in the system.
+The system that has been implemented is able to toggle 2 LEDs, and dim the LEDs in $10\%$ steps.
+During the project, the V-model, ASE-model and Scrum has been used to administrate the work.
+
+With the exception of a single dimming function, the implemented system is fully functional. 
+
+
+\clearpage

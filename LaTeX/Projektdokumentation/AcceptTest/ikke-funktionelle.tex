@@ -1,0 +1,24 @@
+\begin{longtable}{|l|>{\raggedright}X|>{\raggedright}X|>{\raggedright}X| >{\raggedright\arraybackslash}p{2.3 cm}|}
+    \hline
+    \textbf{Krav} & \textbf{Test} & \textbf{Forventet resultat} & \textbf{Resultat} & \textbf{Godkendt / kommentar} \\ \hline
+    1    & Systemet tilkobles den 230V AC til 18 V AC transformator og UC2 gennemføres & UC2 gennemføres planlagt.  & Visuel test: UC2 kører som forventet. & Godkendt                \\ \hline
+    2    & Brugeren vælger ''opret scenarie'' i hovedmenuen.& Der vises en liste af aktioner med op til 20 aktioner. & Visuel test: Der vises en list med 20 aktioner. & Godkendt                   \\ \hline
+    3    & Brugeren vælger ''opret scenarie'' og indtaster 20 aktioner efter eget valg. & Listen med aktioner vises, uden mulighed for at tilføje flere. & Brugeren kan kun tilføje 20 aktioner. & Godkendt                   \\ \hline
+    4    & Brugeren gennemfører UC1 og noterer de valgte tidspunkter og venter til de pågældende tidspunkter (målt på PC'en). & Tidspunkterne for aktionerne stemmer overens med de indtastede tidspunkter med en fejlmargin på $\pm$ 1 minut. & Aktionerne gennemføres inden for fejlmarginen &  Godkendt \\ \hline
+    5    & Et oscilloskop kobles på elnettet mens en kommando afvikles. & Målinger viser $120 kHz$ impulser efter nulgennemgangene, som stemmer overens med X.10 protokollen. & oscilloskopet viser 120kHz impluser efter en nulgennemgang.  &  Godkendt              \\ \hline
+    6    & Der oprettes et scenarie med tre samtidigt forekommende aktioner. & Samtlige tre aktioner udføres indenfor tre minutter fra det indstillede tidspunkt. &  De tre aktioner blev udført inden for 2 sekunder. & Godkendt.   \\ \hline
+    7    & Brugeren vælger ''Vælg forudinstillede scenarier'' i hovedmenuen. & Der vises tre forudindstillede scenarier at vælge imellem. & Visuel test: Der vises tre scenarier. & Godkendt.   \\ \hline
+    8    & Brugeren gennemfører UC2 og noterer antal indtastninger. & Antallet af indtastninger overgår ikke 5. & Brugeren skal kun bruge 4 indtastinger. & Godkendt.  \\ \hline
+    9    & Der oprettes et scenarie med fire enheder, to lamper, et tv og en radio. & Scenariet gennemføres korrekt. & Ikke implementeret.  & Ikke 
+    
+    godkendt.    \\ \hline
+    10   & Der oprettes et scenarie, som dimmer en lampe gradvist fra minimum til maksimum. Strømmen over lampen måles under udførsel af scenariet. & Middelstrømmen gennem lampen måles til hhv. $5\%, 15\% \ldots 95\% \pm 3\%$ af lampens $I_{max}$ ved $5V$\cite{lib:LED}. & Alle undtagen $5\%$ virkede. & Ikke godkendt. Efter fejlsøgning, formodes problemet at ligge i software, men fejlen blev ikke lokaliseret og rettet.  \\ \hline
+    11   & UC2 afvikles og systemet kører i 2 timer. & Tiden hvor systemet ikke er operationelt udgør mindre end $20\%$ af den samlede tid. &  Visuel test: Aktioner udført uden fejl. & Godkendt. \\ \hline
+    12   & Programmet afvikles på en PC og farven på hhv. tekst og baggrund måles med ColorSchemer ColorPix\cite{lib:ColorPix}. & Tekstfarven er hvid \#C0C0C0 og baggrundsfaven er \#000000. & ColorPix's resultater stemmer overens med kravene.  & Godkendt.  \\ \hline
+    13   & Der oprettes et scenarie, som slukker for en af lamperne. Strømmen gennem denne lampe måles efter aktionen er udført. & Der måles en strøm på $0A \pm 50 mA$ gennem lampen. & Der måles en strøm på omkring $0mA$. & Godkendt.    \\ \hline
+    14   & Afskærmningen på transmitter- og receiver-controllerne måles med en tommestok. & Samtlige afskærmninger er mindre end $50 \times 50 \times 20 cm$ & Ikke implementeret.   & Ikke 
+    
+    godkendt.  \\ \hline
+    15   & En dansktalende testperson læser brugerfladen. & Brugerfladen konstateres at være på dansk. & Visuel test: Menuen er på dansk.  & Godkendt. \\ \hline
+\caption{Ikke-funktionelle krav}\label{tbl:acceptikkefunk}
+\end{longtable}

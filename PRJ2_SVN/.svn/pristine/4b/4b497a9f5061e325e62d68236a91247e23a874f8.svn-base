@@ -1,0 +1,20 @@
+/*
+ * Tx_Uart.cpp
+ *
+ * Created: 25/11/2014 20:59:17
+ *  Author: Lasse
+ */ 
+
+#include "Tx_Uart.h"
+
+Transmitter_Uart::UART(){
+	
+	UCSRA = 0x00;
+	UCSRB = 11011000;	//7: RX interrupt, 6: TX int, 5: data empty, 4: RX ena, 3: TX ena, 2: char size, 1: 9. bit, 0: 9.bit.
+	UCSRC = 10001110	//7: UCSRC select, 6: assync, 5,4: parity, 3: stopbit (1->2bit), 2,1: char size, 1: trigger på sync mode (skal være 0 på assync)
+	UBRRH = 0x00;		//
+	UBRRL = 00010111;		/* UBRR = (fosc/(16*BAUD))-1     , fosc = 3.6864*10^6,  BAUD = 9600   
+}							   ->     UBRR = 23 = 00010111.  Pga. dette bliver UBRRL noget og UBRRH 
+							   bliver intet.       */
+
+

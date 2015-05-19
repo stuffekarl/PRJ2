@@ -1,0 +1,31 @@
+/*
+ * Time.h
+ *
+ * Created: 2014-11-26 22:56:21
+ *  Author: Kristian Søgaard
+ */ 
+
+#ifndef TIME_H_
+#define TIME_H_
+
+#include <avr/interrupt.h>
+
+class Transmitter;
+extern "C" void TIMER1_OVF_vect(void) __attribute__ ((signal));
+
+class Time{
+ public:
+	Time();
+	void setTransPtr(Transmitter * setMe); // allows function calls to the transmitter
+    void startTime(); // starts the interrupt routine
+    void stopTime(); // stops the interrupt routine
+    friend void TIMER1_OVF_vect(void); // allows use of interrupt vector
+ private:
+	volatile unsigned char seconds; // keep track of seconds
+	volatile unsigned int minutes; // keep track of minutes
+	Transmitter * myTransPtr;
+};
+
+Time * getMyTime();
+
+#endif /* TIME_H_ */

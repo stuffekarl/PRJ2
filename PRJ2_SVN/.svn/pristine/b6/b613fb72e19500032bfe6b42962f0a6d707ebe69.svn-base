@@ -1,0 +1,39 @@
+/*
+ * Transmitter.h
+ *
+ * Created: 2014-11-27 12:12:34
+ *  Author: Kristian Thomsen
+ */ 
+
+#ifndef TRANSMITTER_H_
+#define TRANSMITTER_H_
+
+#include "Codelock.h"
+#include "Action.h"
+#include "Tx10.h"
+#include "Time.h"
+
+class Transmitter{
+public:
+	Transmitter();
+	Transmitter( Codelock * codePtr = nullptr, Tx10 * tx10Ptr = nullptr, Time * timePtr = nullptr);
+    void scenData(char);
+	void newScen(void);
+	bool getLockStatus(void);
+	void stopAll();
+	void setCodelockPtr(Codelock & setMe);
+	void setTx10Ptr(Tx10 & setMe);
+private:
+	bool receiving;
+	char scenCounter;
+	char charCounter;
+	unsigned char tempUnit;
+	unsigned char tempCommand;
+	unsigned int tempTime;
+	Codelock * myCodelockPtr;
+	Tx10 * myTx10Ptr;
+	Time * myTimePtr;
+	Action myScenario[20];
+};
+
+#endif /* TRANSMITTER_H_ */

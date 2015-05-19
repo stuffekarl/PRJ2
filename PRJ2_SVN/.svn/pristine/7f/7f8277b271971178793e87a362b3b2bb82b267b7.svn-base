@@ -1,0 +1,40 @@
+/*
+ * Test_Transmitter.cpp
+ *
+ * Created: 2014-11-27 13:33:07
+ *  Author: Kristian Thomsen
+ */ 
+#include <avr/io.h>
+#include "Transmitter.h"
+#include "Codelock.h"
+#include "Tx10.h"
+#include "Time.h"
+
+Codelock tempCode;
+ Codelock * getMyCodelock(){
+	
+	return &tempCode;
+}
+
+Time tempTime;
+Time * getMyTime(){
+	return &tempTime;
+}
+
+
+int main(){
+	Transmitter * myTransPtr = getMyTrans();
+	//Tx10 * myTx10Ptr = getMyTx10();
+
+	
+	myTransPtr->newScen();
+
+	for (unsigned char i = 0; i < 80; i++){
+		myTransPtr->scenData(3);
+	}
+	
+
+	while(1);
+
+	return 0;
+}

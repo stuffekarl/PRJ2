@@ -1,0 +1,32 @@
+\subsection{Scenario (Kristian S.)}
+
+\subsubsection{Scenario constructor}
+
+Scenario klassen bruger STL(Standard Template Library) vector container format istedet for et array. Constructoren bruger STL's assign funktion til at oprette 20 aktion objekter med default værdier.
+
+\subsubsection{getAction}
+
+Methoden returner en reference til et aktion objekt i vectoren på baggrund af pladsen i den.
+
+\subsubsection{sortActions}
+
+sortActions bruger STL's sorterings funktionalitet til at sætte de aktions objekter i numerisk rækkefølge set i forhold til deres tids værdi. For at vi kan sammenligne aktion objekter, har aktion klassen fået overloadet dens "<" operator. sortAction har ikke længere en returværdi, men muterer et scenarios vector af action objekter.
+
+\begin{lstlisting}
+void Scenario::sortActions()
+{
+		sort(scen_.begin(), scen_.end());
+}
+\end{lstlisting}
+
+\subsubsection{clearActions}
+
+clearActions bruger clear funktionen i STL for at slette alle actions objekter, hvor efter de bliver oprettet igen med default værdier.
+
+
+\subsubsection{operator ostream}
+
+Scenario klassens ostream operator er blevet overloadet til brug i UI klassen. "<<" operatoren udskriver nu alle aktion objekters værdier som: Tid, kommando og enhed.
+
+
+\clearpage

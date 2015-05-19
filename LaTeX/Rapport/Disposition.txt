@@ -1,0 +1,68 @@
+Forside
+Resumé
+Indholdsfortegnelse
+Indledning
+Opgaveformulering
+	- Resumé af projektbeskrivelse, evt. figur/reference 
+	- Formål med systemet
+Projekafgrænsning
+	- Ingen radio og TV
+	- Ingen afskærmning
+	- Ikke fuld X10 protokol
+	- 18V i stedet for 230V
+Systembeskrivelse
+	- Simpelt system, envejskommunikation, få enheder, simple enheder (jf. afgrænsning), HW modulopbygning, begrænset funktionalitet i SW. 
+Krav
+	- Prosa om krav
+Projektbeskrivelse
+	Projektgennemførelse
+		- Samarbejdsaftale
+		- Overordnet tidsplan
+		- Arbejdsfordeling, opdeling i grupper, ordstyrer, koordinatorer, Dropboxansvarlig, SVN, latex, scrum, procesleder.
+		- Projektstyring, v-model, review, facebook, campus. 
+	Metoder
+		- Sysml
+		- Scrum, afvigelser
+		- V-model
+		- Versionsstyring
+		- Review
+	Fildeling
+		- Dropbox
+		- SVN
+	Latex
+	Specifikation og analyse
+		- Prosa om valgte løsninger
+		- Ingen domænemodel, hvorfor.
+	Systemarkitektur
+		- Prosa om arktitektur, BDD'er etc. 
+		- Applikationsmodel
+	Design HW
+		- Prosa om valgte løsninger, ændringer i design undervejs. Beskrivelse af hvad der ikke virkede.
+	Design SW
+		- Prosa om valgte løsninger, ændringer i design.
+	Udviklingsværktøjer
+		- Multisim
+		- Atmel
+		- Visual
+	Implementering HW
+		- Opdeling af blokke, test undervejs, realisering på fumlebræt, modultest, veroboard. Analog bodeplot.
+	Implementering SW
+		- Konstruktion af klasser, sammensætning undervejs, iterativ proces, individuelle tests af klasser (modultest). Fejlsøgning, sladrehank. 
+	Integrationstest
+		- Fejlsøgning, lav frekvens, brug af Rx UART, målinger med oscilloskop.
+	Resultater og diskussion
+		- Prosa om accepttest
+		- Fine billeder af X10 signal
+		- Opfyldelse af formål
+	Opnåede erfaringer
+		- Personlige erfaringer + fælles
+	Fremtidigt arbejde
+		- Fuldstændig implementering
+		- Flere funktionaliteter i SW
+		- Tovejskommunikation?
+		- 'Rigtig' implementering
+Konklusion
+Litteraturliste og ref
+
+
+

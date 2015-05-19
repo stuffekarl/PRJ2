@@ -1,0 +1,74 @@
+\subsection{UI (Kasper)}
+
+UI'en er en klasse der består af en række metode-kald. Hver af metoderne clearer skærmen for tidligere menu, og tegner den nye menu alt efter hvilken menu, der bliver kaldt. skærmen bliver clearet ved brug af kommando'en \texttt{system("cls")}. som forekommer i starten af alle metode-kaldene. En metode afsluttes ved at returnere en integere i alle tilfælde, men untagelse af funktionen \texttt{drawStopPromt} som returnerer en boolean.
+
+\subsubsection{drawMainMenu}
+drawMainMenu metoden udskriver en en liste over mulige menuer på skærmen hvorefter brugeren får mulighed for at indtaste, hvilken menu der ønskes. ved brug af \texttt{Cin} til at læse input fra brugeren, kan brugeren også indtaste forkerte inputs som f.eks. "AA3". Til at forhindre at forkerte inputs bliver indlæst, bliver der fortaget en validering af den indtastede int. Det tjekkes at inputtet er imellem 1 og 3, og alle andre inputs resultere i en fejlmeddelse på skærmen, og beder brugeren om at prøve igen.
+\begin{lstlisting}
+cin >> pick;
+			if (pick >= 1 && pick <= 3) // tjekker at input vaerdien er indenfor gyldige graenser
+				return pick;
+			else
+				cout << "ugyldig menu, pr\x9Bv igen: ";
+\end{lstlisting}
+
+
+Ved inputs som f.eks. "AA3", vil inputtet ikke kunne valideres ordenligt og resultere i en uendelig løkke af fejlmeddelser. Ved at flushe keyboardets buffer, sørges der for at uanset hvor lang en tekst brugeren indtaster, resultere det kun i en enkelt fejlmeddelse.
+\begin{lstlisting}
+cin.clear();
+fflush(stdin);
+\end{lstlisting}
+
+\subsubsection{drawScenList}
+Metoden \texttt{drawScenList} udskriver en liste med beskrivelsen af 3 forudindstillede scenarier. hvorefter brugeren kan vælge en af de forudindstillede scenarier. Validering af input og valg fungere på samme måde som \texttt{drawMainMenu} metoden.
+
+\subsubsection{drawScenario}
+Metoden \texttt{drawScenario} får en reference til et scenarie ind som parameter. Metoden bruger Scenariet ostream operater til at udskrive de 20 aktioner, der ligger i scenariet ud på skærmen.
+\begin{lstlisting}
+int drawScenario(Scenario & Scen) 
+{	
+	...
+	cout << Scen;
+\end{lstlisting}
+
+
+Brugeren kan herefter vælge en af de 20 aktioner, ved at indtaste nummeret på aktionen. valg og validering af aktion fungerer på samme måde som \texttt{drawMainMenu}, dog er validering af input sat imellem 0 og 19, istedet for 1 og 3.
+\begin{lstlisting}
+if (pick >= 0 && pick <= 19)
+\end{lstlisting}
+
+
+\subsubsection{drawAskUnit}
+metoden \texttt{drawAskUnit} udskriver en liste over Units der kan vælges til udførsel af en kommando. Brugeren kan vælge mellem 2 lamper, et TV og en radio. valg og validering af input fungere på samme måde som \texttt{drawMainMenu}, dog er validering af input sat imellem 1 og 2, som er de 2 lamper. TV og Radio kan ikke vælges, da de ikke implementeres i systemet.
+
+\subsubsection{drawAskCommand}
+metoden \texttt{drawAskUnit} udskriver en liste over kommandoer der kan udføres af den givne Unit. brugeren kan vælge mellem at tænde, slukke og dimme. Valg fungere som i \texttt{drawMainMenu} metoden. Validering af input tjekker her for om det er enten tænd, sluk eller dim der er valgt. Ved tænd og sluk returnere koderne for det valgte, men hvis det valgte er dim, får brugeren mulighed for at vælge styrken af dimming. Styrken af dimming valideres og returneres. Hvis brugeren indtaster en værdi uden for det gyldige område, bliver metoden kørt fra begyndelsen, hvor tænd, sluk eller dimming skal vælges igen.
+
+
+
+\subsubsection{drawAskTime}
+metoden AskTime fungere ved at brugeren bliver bedt om at indtaste hvilket time-tal på dagen den ønskede kommando skal udføres på. Herefter bliver brugeren bedt om at indtaste det ønskede minut-tal på den valgte time. Tiden valideres, og hvis både time-tal og minut-tal er indenfor de gyldige grænser returneres tiden siden midnat i minutter. $timer*60+minutter$ 
+Hvis enten time-tal eller minut-tal er udenfor de gyldige grænser, får brugeren besked om at den indtastede tid er ugyldig og keyboard-bufferen tømmes. Når en en knap trykkes ved fortsættes programmet, og metoden bliver startet forfra. Til at vente på en knap trykkes er brugt \texttt{\_getch()} som kan bruges til at hente hvilken knap på keyboardet er trykket. I dette tilfælde er funktion brugt til at tjekke om en knap bliver trykket på, og ikke for at gemme inputtet af hvad der er trykket på.
+\begin{lstlisting}
+if (hour >= 0 && hour <= 23 && min >= 0 && min <= 59)
+				return (hour * 60 + min); // returnere tiden siden kl 00
+			else
+				cout << "ugyldig tid, pr\x9Bv igen";
+			
+			cin.clear();
+			fflush(stdin); //clear og flusher alt gemt i keyboard bufferen
+			_getch(); //venter paa hvilket somhelst tryk paa keyboard
+\end{lstlisting}
+
+
+\subsubsection{drawStopPromt}
+drawStopPromt metoden udskriver på skærmen en besked om brugeren er sikker på at afviklingen af scenarie skal afsluttes. Ved at trykke på knappen "Y/y" på keyboardet, bekræftes det at det skal afsluttes og der returnes \texttt{true}, en hver anden knap resultere i, at der returneres \texttt{false}
+\begin{lstlisting}
+get = _getch();
+if (get == 89 || get == 121) // ascii vaerdi for y og Y
+			return true;
+		else
+			return false;
+\end{lstlisting}
+
+\clearpage

@@ -1,0 +1,107 @@
+\section{Protokoller (Kristian T., Kristian S., David og Kasper)}
+
+\subsection{Protokol for UART}\label{prot_UART}
+
+For kommunikation mellem Transmitter og PC bruges UART med 8 bits bredde. I de to forskellige stadier kan der sendes forskellige ting, under Receiving stadiet skal der sendes: Unit, Command, TimeL, TimeH.
+
+\begin{table} [h]
+\centering
+\begin{tabular}{|l |l |} \hline 
+\multicolumn{2}{|c|}{\textbf{Idle state}} \\ \hline
+Mode:      & Value \\ \hline
+Lockstatus & L,ret: L\/ U \\
+Newscen    & N            \\		 
+Stop       & S            \\
+\hline
+\end{tabular}
+\caption{Tilgængelige værdier i 'Idle' state.}
+\end{table}
+
+\begin{table} [h]
+\centering
+\begin{tabular}{|l |l |l | l | l | l| l| l| l|l|l|} \hline
+\multicolumn{8}{|c|}{\textbf{Receiving state}} \\ \hline
+Unit: & Value && Command: & Value  && Time &  Value       \\ \cline{1-2} \cline{4-5} \cline{7-8}
+Arne (L1)     & 'A' && Dim  & 'A' - 'J' &&  bin\_val & 0x0000 - 0x05FF  \\  \cline{7-8} %\cline{1-2} \cline{4-5}
+Carl (L2)     & 'C' && Tænd & 'T'    \\	 %\cline{7-8} % \cline{1-2} \cline{4-5}
+Per (TV)      & 'P' && Sluk & 'S' & \multicolumn{3}{l}{ } \\ \cline{4-5} % \cline{7-8} \cline{1-2}
+Nils (Radio)  & 'N' & \multicolumn{6}{l}{ } \\ \cline{1-2}  %\cline{7-8} %\cline{4-5}
+\end{tabular}
+\caption{Tilgængelige værdier i 'Receiving' state.}
+\end{table}
+
+Fra UARTen på PCen bliver det sendt i rækkefølgen: unit, command, timeLow, timeHigh. Hvor unit er en af de 4 mulige units. Command er en af kommandoerne: T,S eller A til J, hvor A til J er forskellige dimming styrker.
+Time sendes opdelt i 3 chars. Første char sender de første 4 bit, kodet således at 0 = ASCII værdien for 0, 1 = ASCII værdien for 1 osv. Dvs at Selve tallet + 48 sendes. Det samme gælder for den næste char, som repræsentere bit 4-7. Den sidste char repræsenterer bit 8-11 af den \texttt{INT}, som indeholder tiden. Dette er den maksimale tid, da det er antallet af minutter på et døgn.
+Der bliver sendt med asynkront, 8bit, 1 stopbit, ingen paritet, og en baudrate på 9600.
+
+\clearpage
+
+\subsection{Protokol for X.10}\label{prot_x10}
+
+Ved kommunikation med X.10, er der lavet en protokol med inspiration fra AN236 Applicationsnote \cite{lib:AN236}. En bit består af to nulgennemgange, hvor de er hinandens omvendte. Dvs: \texttt{1 = 10} og \texttt{0 = 01}. Udover dette er der et specifikt startmønster \texttt{"1110"} og et specifikt stopmønster \texttt{"1111"}, samt en ventekode \texttt{"000000"}. Hver kommando skal sendes to gange i stræk, adskilt af ventekoden. I Tabel \ref{tbl:x.10pattern} ses hvordan en kommando er opbygget i X.10.
+
+\begin{table} [h]
+	\centering
+    \begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+    \hline    
+    Startcode & 4 bit & 4 bit & 4 bit & waitcode &  4 bit & 4 bit & 4 bit & Stopcode\\ \hline
+    1110            & House & Unit & Command & 000000  &   House & Unit  & Command & 1111 \\ \hline
+    \end{tabular}
+\caption{Mønster for hvordan en kommando sendes via X.10}
+\label{tbl:x.10pattern}
+\end{table}
+
+4 bit værdien 'House' erstattes med en af nedenstående huskoder. Hvis koden ''All off''  modtages, kaldes der i hver receiver en off funktion.
+
+\begin{table} [h]
+\centering
+    \begin{tabular}{|l|l|l|}
+    \hline
+    House & Value  & Kommentar          \\ \hline
+    All off & 0      & Slukker alt        \\ \hline
+    Lamps   & 1      & ~                  \\ \hline
+    TV      & 2      & ~                  \\ \hline
+    Radio   & 3      & ~                  \\ \hline
+    Resrved & 4.. 15 & ikke taget i brug. \\ \hline
+    \end{tabular}
+\caption{Tilgængelige huskoder i X.10.}
+\end{table}
+
+Ligeledes erstattes 'Unit' med en af de nedenstående enheder:
+
+\begin{table} [h]
+\centering
+    \begin{tabular}{|l|l|l|}
+    \hline
+    Unit    & Value   \\ \hline
+    Lampe 1 & 1     \\ \hline
+    Lampe 2 & 2      \\ \hline
+    TV      & 4     \\ \hline
+    Radio   & 8     \\ \hline
+    \end{tabular}
+\caption{Tilgængelige huskoder i X.10.}
+\end{table}
+
+Hver enhed har hver sit sæt af kommandoer, og da kun er valgt at implementere lamper, er her en liste over kommanoder for lamper:
+
+\begin{table} [h]
+\centering
+    \begin{tabular}{|l|l|}
+    \hline
+    CMD\_L    & Value    \\ \hline
+    Sluk      & 0        \\ \hline
+    Tænd      & 1        \\ \hline
+    Dim 5\%   & 2        \\ \hline
+    Dim 15\%  & 3        \\ \hline
+    Dim ...\% & ...      \\ \hline
+    Dim 95\%  & 11       \\ \hline
+    Reserved  & 12... 15 \\ \hline
+    \end{tabular}
+\caption{Tilgængelige kommandoer for lamper.}
+\end{table}
+
+
+
+
+
+

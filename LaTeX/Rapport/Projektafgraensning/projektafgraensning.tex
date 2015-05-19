@@ -1,0 +1,19 @@
+\chapter{Projektafgrænsning}
+Der er som nævnt under opgaveformuleringen krav om at systemet skal indeholde:
+\begin{itemize}
+\item 1 PC som anvendes til konfiguration og styring
+\item 1 STK500 kit som anvendes til central transmitter controller
+\item 1 DE2-kodelås
+\end{itemize}
+Der er desuden krav om at X.10 protokollen \cite[s. 12]{lib:AN236} skal anvendes til kommunikation via el-nettet. 
+
+Som det ligeledes er nævnt under opgaveformuleringen, anvendes et 18 VAC elnet i stedet for det almindelige 230 VAC elnet af sikkerhedsmæssige årsager. 
+
+Til at starte med er det fuldstændige system beskrevet i projektdokumentationen, men af tidsmæssige årsager, er radio- og TV-delen udeladt fra og med signalbeskrivelser i Systemarkitekturen på side \pageref{P-tbl:signalbeskriv} i projektdokumentationen.
+Det ville kræve en del mere arbejde at implementere kommunikationen til radio og TV fra de respektive receivere, da denne skulle foregå ved brug af infrarødt lys. 
+
+Systemets hardware er implementeret på veroboard, hvilket betyder at accepttest af afskærmningen af elektriske komponenter ikke er gennemført. 
+
+Kun dele af X.10 protokollen, som er relevante for opfyldelse af systemets mål, er anvendt. 
+For mere detaljeret beskrivelse af den anvendte X.10 protokol henvises til afsnittet \textit{Protokol for X.10} på side \pageref{P-prot_x10} i projektdokumentationen.
+\clearpage

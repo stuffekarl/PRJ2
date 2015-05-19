@@ -1,0 +1,162 @@
+#include <iostream>
+#include <String>
+
+using namespace std;
+
+class Action
+{
+public:
+	//constructors
+
+	Action::Action()
+	{
+		houseCode_ = 0;
+		minutes_ = 0;
+		unitCode_ = 1;
+		commandNo_ = 1;
+	}
+
+	Action::Action(int time, int unit, int commandNo)
+	{
+		houseCode_ = 0;
+		bool a = setUnit(unit);
+		bool b = setCommand(commandNo);
+		bool c = setTime(time);
+	}
+
+	// Set functions
+
+
+	bool Action::setUnit(int unit)
+	{
+
+		if (unit > 0 && unit < 5)
+		{
+			unitCode_ = unit;
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+
+	}
+
+	bool Action::setCommand(int command)
+	{
+		if (command > 0 && command < 13)
+		{
+			commandNo_ = command;
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+
+	}
+
+	bool Action::setTime(int time)
+	{
+
+		if (time > -1 && time < 1440) // checks if time is set between 00.00 to 23.59
+		{
+			minutes_ = time;
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+
+	}
+
+	// Get functions
+
+
+	int Action::getUnit() const
+	{
+		return unitCode_;
+	}
+
+	string Action::getCommand() const
+	{
+		switch (commandNo_)
+		{
+		case 1:
+			return "Taend ";
+			break;
+		case 2:
+			return "Sluk ";
+			break;
+		case 3:
+			return "Dim 5% ";
+			break;
+		case 4:
+			return "Dim 15% ";
+			break;
+		case 5:
+			return "Dim 25% ";
+			break;
+		case 6:
+			return "Dim 35% ";
+			break;
+		case 7:
+			return "Dim 45% ";
+			break;
+		case 8:
+			return "Dim 55% ";
+			break;
+		case 9:
+			return "Dim 65% ";
+			break;
+		case 10:
+			return "Dim 75% ";
+			break;
+		case 11:
+			return "Dim 85% ";
+			break;
+		case 12:
+			return "Dim 95% ";
+			break;
+		default:
+			return "Ingen Kommando";
+		}
+	}
+
+	int Action::getTime() const
+	{
+		return minutes_;
+	}
+
+	// Override functions
+	
+	//Used to compare action objects in sort based on its time value
+	bool Action::operator <(const Action& a) const {
+		if (this->getTime() < a.getTime())
+			return true;
+		else
+			return false;
+	}
+
+private:
+	int minutes_;
+	int houseCode_;
+	int unitCode_;
+	int commandNo_;
+};
+
+
+// Override functions
+
+ostream &operator<<(ostream &streamRef, const Action &ActionRef)
+{
+
+	int MM = ActionRef.getTime() % 60;
+	int HH = (ActionRef.getTime() - MM) / 60;
+
+	streamRef << "Time: " << HH << ":" << MM << ", Unit: " << ActionRef.getUnit()
+		<< ", Command: " << ActionRef.getCommand() << endl;
+
+	return streamRef;
+}

@@ -1,0 +1,190 @@
+#pragma once
+#include <stdlib.h>
+#include <stdio.h>
+#include <iostream>
+#include <cmath>
+#include <Windows.h>
+
+
+
+#include "rs232.h"
+#include "Scenario.h"
+
+using namespace std;
+class UART
+{
+public:
+	UART()
+	{
+
+	}
+
+	void UART_connect()
+	{
+		char mode[] = { '8', 'N', '1', 0 },
+			str[20][5];
+		cout << "leder efter gyldig port\n";
+		//inialitisere og finder gyldig Comport
+		while (RS232_OpenComport(cport_nr, bdrate, mode))
+		{
+
+			printf("ugyldig Com-port\n");
+			cport_nr++;
+
+		
+
+		}
+		cout << "port: " << cport_nr << " aaben\n";
+	}
+	bool getLockStatus()
+	{
+
+		/* FOR TESTING PURPOSES ONLY*/
+
+		return 0;
+
+		/* FOR TESTING PURPOSES ONLY  END*/
+
+		RS232_cputs(cport_nr, "L");
+
+		unsigned char buf[2];
+		char mode[] = { '8', 'N', '1', 0 };
+		int n = RS232_PollComport(cport_nr, buf, 4095);
+
+			while(1)
+			{
+		
+
+			if (n > 0)
+			{
+				buf[n] = 0;   /* always put a "null" at the end of a string! */
+
+				for (i = 0; i < n; i++)
+				{
+					if (buf[i] < 32)  /* replace unreadable control-codes by dots */
+					{
+						buf[i] = '.';
+					}
+				}
+
+				printf("received %i bytes: %s\n", n, (char *)buf);
+
+				if (buf[0] == 'U')
+				{
+					return 0;
+				}
+				else if (buf[0] == 'L')
+				{
+					return 1;
+				}
+				
+			}
+
+			Sleep(100);
+			
+			}
+
+	}
+	void sendScen(Scenario &scen)
+	{
+		char mode[] = { '8', 'N', '1', 0 },
+			str[20][5];
+
+		while (sent)
+		{
+
+			RS232_cputs(cport_nr, "N");
+
+
+			Action & action = scen.getAction(i);
+			action.setTime(7);
+		
+
+			{
+				cout << action.getCommand() << " " << action.getUnit() << " " << action.getTime() << endl;
+
+			}
+			char command = action.getCommand();
+			char unit;
+			char TimeLow, TimeHigh;
+
+			{
+				//tager sig af at omregne tiden fra int til char
+				// 1= 1  2=2   9=9  10=A  11=B 12=C  13=D 14= E 15 = F
+				int timeL = action.getTime() % 256;
+				int timeH = int((floor(action.getTime() / 256))); 
+
+				TimeLow = ((char)timeL);
+			
+				TimeHigh = ((char)timeH);
+	
+
+
+
+						
+				
+
+
+			}
+
+
+			switch (action.getUnit())
+			{
+			case 1:
+				unit = 'A';
+				break;
+			case 2:
+				unit = 'C';
+				break;
+			case 3:
+				unit = 'P';
+				break;
+			case 4:
+				unit = 'N';
+				break;
+			default: 
+				unit = '0';
+				break;
+
+			}
+
+			char data[5] = { unit, command, TimeLow, TimeHigh };
+			strcpy(str[i], data);
+			RS232_cputs(cport_nr, str[i]);
+
+			printf("sendt data: %s\n", str[i]);
+
+
+			Sleep(1000);
+
+
+
+			i++;
+
+			i %= 20;
+			c++;
+			if (c == 20)
+			{
+				printf("Transmission fuldfoert\n");
+				break;
+			}
+		}
+
+	}
+	void stopAll()
+	{
+		RS232_cputs(cport_nr, "S");
+	}
+
+
+private:
+	bool sent = 1;
+	int c = 0;
+	int i = 0,
+		cport_nr = 0,        
+		bdrate = 9600;     
+
+
+
+};
+

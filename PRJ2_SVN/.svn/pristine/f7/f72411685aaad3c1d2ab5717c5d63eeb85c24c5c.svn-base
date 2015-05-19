@@ -1,0 +1,17 @@
+/*
+ * TransmitterProj.cpp
+ *
+ * Created: 21-11-2014 08:36:01
+ *  Author: entvex
+ */ 
+
+
+#include <avr/io.h>
+
+int main(void)
+{
+    while(1)
+    {
+        //TODO:: Please write your application code 
+    }
+}

@@ -1,0 +1,27 @@
++5V:		Rød	8 stk.
+-5V: 		Orange	5 stk.
+0V:			Brun	8 stk.
+12V:		Grøn	3 stk.
+stel:		Sort	3 stk.
+signal:		Lilla	6 stk.
+zerocross:	Gul		3 stk.
+bitstream	Blå		3 stk.
+lightPWM	Hvid	2 stk.
+sourcePWM	Rød		2 stk.
+sourcePWMref	grå	2 stk.
+
+Transmitter:
+PA0 - JP2[1]
+GND - JP2[12]
+PD2 - Zerocross
+PB3 - Carrier generator
+RXD, TXD - PD0, PD1
+
+Receivers:
+PA0 - Carrier detector
+PD2 - Zerocross
+PB3 - lightPWM
+PA2,PA3 - SW0, SW1
+PAGND,PAVTG - SWGND, SWVTG
+RXD, TXD - PD0, PD1
+PORTC - LED  

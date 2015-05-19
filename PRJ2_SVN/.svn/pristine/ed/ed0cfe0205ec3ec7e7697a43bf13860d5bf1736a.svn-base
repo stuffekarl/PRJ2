@@ -1,0 +1,29 @@
+
+#include "Scenario.h"
+
+using namespace std;
+class UART
+{
+public:
+	UART()
+	{
+
+	}
+	bool getLockStatus()
+	{
+
+	}
+	void sendScen(Scenario &scen)
+	{
+
+	}
+	void stopAll()
+	{
+
+	}
+
+
+private:
+
+};
+

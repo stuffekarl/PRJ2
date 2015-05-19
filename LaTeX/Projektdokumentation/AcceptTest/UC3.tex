@@ -1,0 +1,12 @@
+\begin{longtable}{| l | >{\raggedright}X | >{\raggedright}X | >{\raggedright}X | >{\raggedright\arraybackslash}p{2.3cm} |} \hline
+\multicolumn{2}{|l|}{\textbf{Use case under test}} & \multicolumn{3}{l|}{UC3: "Stop Scenarie"} \\ \hline
+	\multicolumn{2}{|l|}{\textbf{Scenarie}} & \multicolumn{3}{l|}{Hovedscenarie} \\ \hline
+	\multicolumn{2}{|l|}{\textbf{Forudsætning}} & \multicolumn{3}{p{10.2cm}|}{Koden er indtastet korrekt på kodelåsen og systemet er operationelt.\hfill} \\ \hline
+	%\multicolumn{5}{|l|}{}\\ \hline
+	\textbf{Step} & \textbf{Handling} & \textbf{Forventet Resultat} & \textbf{Resultat} & \textbf{Godkendt / Kommentar} \\ \hline
+	3.1  & Brugeren starter programmet og vælger "Stop scenarie". & Systemet prompter brugeren om vedkommende er sikker. & Systemet prompter brugeren om vedkommende er sikker. & Godkendt \\ \hline
+	3.2  & Brugeren vælger "nej". & Systemet vender tilbage til hovedmenuen; eksekvering af scenarie fortsætter. & Systemet vender tilbage til hovedmenuen; eksekvering af scenarie fortsætter. & Godkendt \\ \hline
+	3.3  & Brugeren vælger "Stop scenarie". & Systemet prompter brugeren om vedkommende er sikker. & Systemet prompter brugeren om vedkommende er sikker. & Godkendt \\ \hline
+	3.4  & Brugeren vælger "ja". & Eksekvering af igangværende scenarie stopper, hovedmenuen præsenteres og samtlige elektriske enheder slukkes. & Eksekvering af igangværende scenarie stopper, hovedmenuen præsenteres og samtlige elektriske enheder slukkes. & Godkendt \\ \hline
+\caption{Accepttest for UC3: Stop scenarie}\label{tbl:acceptUC43}
+\end{longtable}

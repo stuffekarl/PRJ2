@@ -1,0 +1,116 @@
+/*
+ * Tx10.cpp
+ *
+ * Created: 2014-11-21 08:43:59
+ *  Author: Kristian Thomsen & David Jensen
+ */ 
+
+#include "Tx10.h"
+#include "Action.h"
+
+Tx10 myTx10;
+
+Tx10 * getMyTx10(){
+	return &myTx10;
+}
+
+Tx10::Tx10(){
+	buffCount = 0;
+	pattCount = 0;
+	house = 0xFF;
+	unit = 0xFF;
+	command = 0xFF;
+	start = false;
+	buffer = 0;
+	
+	//Timer0 initialization:
+	TCCR0 = TCCR0 | 0b00011001; //CTC mode, toggle on compare match, no prescaler
+	OCR0 = 14; //see mathcad calcs
+	TCNT0 = 0; //reset timer
+	
+	//Timer2 initialization:
+	TCCR2 = 0b00000000; //Normal mode, no clock source = timer off
+	
+	//INT0 initialization:
+	MCUCR = MCUCR | 0b00000001; //interrupt on toggle INT0
+	GICR = GICR | 0b01000000; // INT0 enabled
+}
+
+void Tx10::sendAction(Action & myAction){
+	this->house = myAction.getHouseCode();
+	this->unit = myAction.getUnit();
+	this->command = myAction.getCommand();
+	this->start = true;
+}
+
+void Tx10::sendCrossing(unsigned char send){
+	if (send){
+		DDRB = DDRB | 0b00001000; //output on PB3
+		waitMs();
+		DDRB = DDRB & 0b11110111; //input on PB3
+	}
+}
+
+void Tx10::waitMs(){
+	TCNT2 = (255-59); //reset timer2, see mathcad calcs
+	TCCR2 = TCCR2 | 0b00000100; // start timer2 with 64 prescaler
+	while ((TIFR & 0b01000000) == 0); //wait for overflow on Timer2	
+	TCCR2 = TCCR2 & 0b11111011; //Stop timer2
+	TIFR = TIFR | 0b01000000; // clear overflow flag by writing 1
+}
+
+ISR(INT0_vect){
+	if (myTx10.start){ //check if the Tx is supposed to transmit
+		if (myTx10.buffCount == 0){
+			if (myTx10.pattCount == 0){
+				myTx10.buffer = 0b11101111;
+				myTx10.buffCount = 4;
+			}
+			else if (myTx10.pattCount == 1){
+				myTx10.buffer = myTx10.house;
+				myTx10.buffCount = 8;
+			}
+			else if (myTx10.pattCount == 2){
+				myTx10.buffer = myTx10.unit;
+				myTx10.buffCount = 8;
+			}
+			else if (myTx10.pattCount == 3){
+				myTx10.buffer = myTx10.command;
+				myTx10.buffCount = 8;
+			}
+			else if (myTx10.pattCount == 4){
+				myTx10.buffer = 0b00000011;
+				myTx10.buffCount = 6;
+			}
+			else if (myTx10.pattCount == 5){
+				myTx10.buffer = myTx10.house;
+				myTx10.buffCount = 8;
+			}
+			else if (myTx10.pattCount == 6){
+				myTx10.buffer = myTx10.unit;
+				myTx10.buffCount = 8;
+			}
+			else if (myTx10.pattCount == 7){
+				myTx10.buffer = myTx10.command;
+				myTx10.buffCount = 8;
+			}
+			else if (myTx10.pattCount == 8){
+				myTx10.buffer = 0b11110000;
+				myTx10.buffCount = 4;
+			}
+			else if (myTx10.pattCount == 9){
+				myTx10.start = false;
+				myTx10.pattCount = 0;
+			}
+			myTx10.pattCount++;
+		}
+		
+		if (myTx10.buffCount > 0){
+			myTx10.sendCrossing((myTx10.buffer & 0b10000000)); //Send out the MSB
+			myTx10.buffCount--;
+			myTx10.buffer = (myTx10.buffer << 1); //shifts the buffer one time to the right
+		}
+	}
+	PORTC = ~myTx10.buffer;
+}
+

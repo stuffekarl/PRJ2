@@ -1,0 +1,14 @@
+\chapter{Resumé}
+Denne rapport omhandler et 2. semesterprojekt på Ingeniørhøjskolen, Aarhus Universitet på retningerne Elektro, IKT og stærkstrøm. Projektarbejdet omhandler design og implementering af et Home Automation System, der kan simulere tilstedeværelse i en bolig for at forebygge indbrud. 
+
+Tilstedeværelse simuleres ved at forskellige elektriske enheder i hjemmet tændes og slukkes automatisk, så en evt. indbrudstyv foranlediges til at tro, at der er nogen hjemme. 
+
+Systemet styres fra en PC, der kommunikerer serielt med en central transmitter controller. Transmitter controlleren anvender herefter X.10 protokol til, via elnettet, at kommunikere med receiver controllere, som bl.a. tænder og slukker de tilkoblede elektriske enheder. 
+
+Software til PC og microcontrollere er skrevet i C++, hardware er testet på fumlebræt og implementeret på simple veroboard. Som controllere er anvendt Atmel STK500 udviklingskit monteret med ATMega32 microcontrollers. Systemet indeholder desuden en kodelås implementeret på DE2-board.
+
+Systembeskrivelsen indeholder flere funktioner (styring af radio og TV), end der er implementeret. Den del af systemet, der er implementeret, kan tænde og slukke to forskellige LED'er samt dimme disse i trin á $10\%$. 
+
+Under projektarbejdet er der anvendt tilpassede udgaver af V-model, ASE-modellen, Scrum og SysML til styring af arbejdet. 
+
+Med undtagelse af en enkelt del af dimmefunktionen, fungerer det implementerede system fuldstændig upåklageligt.

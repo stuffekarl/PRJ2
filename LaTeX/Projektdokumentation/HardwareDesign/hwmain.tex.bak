@@ -1,0 +1,7 @@
+\input{../preamble/preamble}
+
+\begin{document}
+
+\input{../HardwareDesign/hwdesign}
+
+\end{document}

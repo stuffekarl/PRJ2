@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	time_t tid;
+	time(&tid);
+
+
+	struct tm *mytime = localtime(&tid);
+
+	int timesince00 = mytime->tm_min + (mytime->tm_hour * 60);
+
+	cout << timesince00;
+
+}

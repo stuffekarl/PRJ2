@@ -1,0 +1,26 @@
+\chapter{Hardwareimplementering}
+
+\section{Version}
+\begin{table}[h]
+	\centering
+	\begin{tabularx}{\textwidth - 2cm}{|l|l| l|X|}
+	\hline
+	Dato	& Version	& Initialer & Ændring	\\ \hline
+	03. december & 1 & HBJ	& Første version \\ \hline
+	\end{tabularx}
+\end{table}
+
+
+\input{../Implementering/HW_implementering/Spaendingsforsyning/Spaendingsforsyning.tex}
+
+\input{../Implementering/HW_implementering/Codelock/code_lock.tex}
+
+\clearpage
+\input{../Implementering/HW_implementering/Zerocrossdetector/Zerocross_detector.tex}
+
+\input{../Implementering/HW_implementering/Carriergenerator/Carrier_generator.tex}
+
+\input{../Implementering/HW_implementering/Lightmodule/light_module.tex}
+
+\clearpage
+\input{../Implementering/HW_implementering/Carrierdetector/Carrier_detector.tex}
